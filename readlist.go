@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 )
@@ -45,22 +44,28 @@ func NewListReader(p string) *ListReader {
 	return &lr
 }
 
-// Example of how to use NewListReader
-func main() {
-	p := "/tmp/dat"
-	lr := NewListReader(p)
+// /*
+//  * Example of how to use NewListReader
+//  */
+// func main() {
+// 	p := "/tmp/dat"
+// 	lr := NewListReader(p)
 
-	// Loop through each line and print
-	for {
-		d, b := lr.Next()
-		fmt.Println(d)
+//   /*
+//    * Loop through each line and print
+//    */
+// 	for {
+// 		d, b := lr.Next()
+// 		fmt.Println(d)
 
-		if !b {
-			break
-		}
-	}
+// 		if !b {
+// 			break
+// 		}
+// 	}
 
-	// Important step - don't forget this!
-	// There's probably a better way to handle it.
-	defer lr.f.Close()
-}
+//   /*
+//    * Important step - don't forget this!
+//    * There's probably a better way to handle it.
+//    */
+// 	defer lr.f.Close()
+// }
