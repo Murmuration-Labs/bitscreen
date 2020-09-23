@@ -2,70 +2,53 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 )
 
-func check(e error) {
+func sigterm(e error) {
 	if e != nil {
 		log.Fatal(e)
 		panic(e)
 	}
 }
 
-type ListReader struct {
-	p string         // File path to read
-	f *os.File       // File data
-	s *bufio.Scanner // Scanner
-}
-
-func (lr *ListReader) Next() (string, bool) {
-	b := lr.s.Scan()
-
-	if b {
-		return lr.s.Text(), b
-	}
-
-	return "", b
-}
-
-func NewListReader(p string) *ListReader {
+func FindCid(cid string, p string) (bool, error) {
 	f, err := os.Open(p)
-	check(err)
+	sigterm(err)
+	defer f.Close()
 
 	s := bufio.NewScanner(f)
-	check(s.Err())
+	sigterm(s.Err())
 
-	lr := ListReader{
-		p: p,
-		f: f,
-		s: s,
+	found := false
+
+	for {
+		b := s.Scan()
+		if b {
+			if s.Text() == cid {
+				found = true
+			}
+		}
+
+		if !b {
+			break
+		}
 	}
-	return &lr
+
+	return found, nil
 }
 
 // /*
 //  * Example of how to use NewListReader
 //  */
 // func main() {
-// 	p := "/tmp/dat"
-// 	lr := NewListReader(p)
-
-//   /*
-//    * Loop through each line and print
-//    */
-// 	for {
-// 		d, b := lr.Next()
-// 		fmt.Println(d)
-
-// 		if !b {
-// 			break
-// 		}
+// 	cid := "hello"
+// 	p := "/tmp/dat" // Path to list of CIDs
+// 	found, err := FindCid(cid, p)
+// 	if err != nil {
+// 		fmt.Println(err)
 // 	}
-
-//   /*
-//    * Important step - don't forget this!
-//    * There's probably a better way to handle it.
-//    */
-// 	defer lr.f.Close()
+// 	fmt.Println(found)
 // }
