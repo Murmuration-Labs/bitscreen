@@ -41,7 +41,7 @@ func FindCid(cid string, p string) (bool, error) {
 }
 
 // /*
-//  * Example of how to use NewListReader
+//  * Example implementation
 //  */
 // func main() {
 // 	cid := "hello"
