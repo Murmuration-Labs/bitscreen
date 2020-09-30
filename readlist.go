@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"github.com/ipfs/go-cid"
+	"golang.org/x/xerrors"
 )
 
 func sigterm(e error) {
@@ -22,13 +23,11 @@ func FindCid(cid cid.Cid, p string) (bool, error) {
 	s := bufio.NewScanner(f)
 	sigterm(s.Err())
 
-	found := false
-
 	for {
 		b := s.Scan()
 		if b {
 			if s.Text() == cid.String() {
-				found = true
+				return true, xerrors.Errorf("cid found in list")
 			}
 		}
 
@@ -37,7 +36,7 @@ func FindCid(cid cid.Cid, p string) (bool, error) {
 		}
 	}
 
-	return found, nil
+	return false, nil
 }
 
 // /*
