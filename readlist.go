@@ -29,8 +29,7 @@ func FindCid(cid cid.Cid, p string) (bool, error) {
 			if s.Text() == cid.String() {
 				return true, xerrors.New("cid found in list.")
 			}
-
-		if !b {
+		} else {
 			break
 		}
 	}
