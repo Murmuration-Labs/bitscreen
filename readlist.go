@@ -1,4 +1,4 @@
-package list-tools
+package listtools
 
 import (
 	"bufio"
