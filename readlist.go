@@ -2,7 +2,6 @@ package listtools
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 )
