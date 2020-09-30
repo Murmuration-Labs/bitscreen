@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"log"
 	"os"
+	"github.com/ipfs/go-cid"
 )
 
 func sigterm(e error) {
@@ -13,7 +14,7 @@ func sigterm(e error) {
 	}
 }
 
-func FindCid(cid string, p string) (bool, error) {
+func FindCid(cid cid.Cid, p string) (bool, error) {
 	f, err := os.Open(p)
 	sigterm(err)
 	defer f.Close()
@@ -26,7 +27,7 @@ func FindCid(cid string, p string) (bool, error) {
 	for {
 		b := s.Scan()
 		if b {
-			if s.Text() == cid {
+			if s.Text() == cid.String() {
 				found = true
 			}
 		}
