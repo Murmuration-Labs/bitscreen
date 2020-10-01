@@ -1,11 +1,3 @@
-# BitScreen
-
-BitScreen is a tool to compare a CID with a list of CIDs. When a CID is found, an error is thrown.
-
-## Usage
-
-Example implementation:
-```go
 package main
 
 import(
@@ -29,4 +21,3 @@ func main() {
 
 	fmt.Println(found)
 }
-```
