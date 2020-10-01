@@ -18,3 +18,8 @@
 .murmuration/
 .murmuration/*
 */.murmuration/*
+bitscreen
+examples/test
+
+# Local development config
+.vscode
