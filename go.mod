@@ -1,8 +1,9 @@
-module github.com/Murmuration-Labs/bitscreen
+module bitscreen.go
 
-go 1.13
+go 1.15
 
 require (
+	github.com/Murmuration-Labs/bitscreen v0.1.1
+	github.com/filecoin-project/specs-actors v0.9.12
 	github.com/ipfs/go-cid v0.0.7
-	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1
 )

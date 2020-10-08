@@ -1,0 +1,47 @@
+{
+    "Proposal": {
+        "PieceCID": {
+            "/": "baga6ea4seaqkszyboqhhsakpcpesq7xptojhacvewgde3hykipl7e2idqukboky"
+        },
+        "PieceSize": 134217728,
+        "VerifiedDeal": false,
+        "Client": "t1kxd4qebtvwx6bn6a4ypc3afiwmdhsabtppdmwxi",
+        "Provider": "t01013",
+        "Label": "mAXCg5AIgPjcct4EJGoUpVyBp1LNS+nObc+wuAm0JLEbRR9RnNeM",
+        "StartEpoch": 7664,
+        "EndEpoch": 528705,
+        "StoragePricePerEpoch": "62500000",
+        "ProviderCollateral": "270047582",
+        "ClientCollateral": "0"
+    },
+    "ClientSignature": {
+        "Type": 1,
+        "Data": "U6b7DMxGAunm3+P8gi7efmS8ecnsTAKc8sGjRYS0UHhX/TupXLH93CDngqEcUQce2Zkyb5AT3Y963cJgVyoW3QE="
+    },
+    "ProposalCid": {
+        "/": "bafyreihtud3iumsm4dyio3bu3sstj6w5lfs5wucoiikisyjpqe4yl63rwq"
+    },
+    "AddFundsCid": null,
+    "PublishCid": null,
+    "Miner": "12D3KooWGdpXeqJbLEUyJp4o1GvLVxzoGiYGKiYUq6LB5r8f1vF4",
+    "Client": "12D3KooWSRvagorF8HSaraZRpXWq4JpjrfJfa6kQ22kv8wnxztRF",
+    "State": 15,
+    "PiecePath": "",
+    "MetadataPath": "",
+    "SlashEpoch": 0,
+    "FastRetrieval": true,
+    "Message": "",
+    "StoreID": 2,
+    "FundsReserved": "0",
+    "Ref": {
+        "TransferType": "graphsync",
+        "Root": {
+            "/": "bafykbzacea7dohfxqeervbjjk4qgtvftkl5hhg3t5qxae3ijfrdncr6um426g"
+        },
+        "PieceCid": null,
+        "PieceSize": 0
+    },
+    "AvailableForRetrieval": false,
+    "DealID": 0,
+    "CreationTime": "2020-10-01T15:58:00.157336467Z"
+}

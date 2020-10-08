@@ -8,7 +8,8 @@ import (
 	"os"
 
 	"github.com/ipfs/go-cid"
-	xerrors "golang.org/x/xerrors"
+
+	"github.com/filecoin-project/specs-actors/actors/builtin/market"
 )
 
 // For now, BitScreen holds information about the bitscreen file path
@@ -59,7 +60,6 @@ func MaybeCreateBitscreen() BitScreen {
 	}
 
 	if !FileExists(b.p) {
-		// os.Create(p)
 		err := ioutil.WriteFile(b.p, []byte(""), 0777)
 		sigterm(err)
 	}
@@ -67,9 +67,15 @@ func MaybeCreateBitscreen() BitScreen {
 	return b
 }
 
+func ScreenClientDealProposal(deal market.ClientDealProposal) int {
+	cid := deal.Proposal.PieceCID
+	return ScreenCID(cid)
+}
+
 // Checks for a CID in ./murmuration/bitscreen
-// If found, throws an error
-func Screen(cid cid.Cid) (bool, error) {
+// If content should be filtered, returns 0
+// If content should not be filtered, returns 1
+func ScreenCID(cid cid.Cid) int {
 	b := MaybeCreateBitscreen()
 	f, err := os.OpenFile(b.p, os.O_RDONLY, 0777)
 	sigterm(err)
@@ -82,13 +88,12 @@ func Screen(cid cid.Cid) (bool, error) {
 		b := s.Scan()
 		if b {
 			if s.Text() == cid.String() {
-				m := fmt.Sprintf("CID %s detected in BitScreen.", cid.String())
-				return true, xerrors.New(m)
+				return 0
 			}
 		} else {
 			break
 		}
 	}
 
-	return false, nil
+	return 1
 }
