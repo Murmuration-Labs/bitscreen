@@ -8,7 +8,7 @@ import (
 	"os"
 
 	"github.com/Murmuration-Labs/bitscreen"
-	"github.com/filecoin-project/specs-actors/actors/builtin/market"
+	"github.com/filecoin-project/go-fil-markets/storagemarket"
 	"github.com/ipfs/go-cid"
 )
 
@@ -21,7 +21,7 @@ func _buildCID() (cid.Cid, error) {
 	return cid.Decode("bafzbeigai3eoy2ccc7ybwjfz5r3rdxqrinwi4rwytly24tdbh6yk7zslrm")
 }
 
-func _buildClientDeal() (market.ClientDealProposal, error) {
+func _buildDeal() (storagemarket.MinerDeal, error) {
 	j, err := os.Open("./test-deal.json")
 	if err != nil {
 		fmt.Println(err)
@@ -31,7 +31,7 @@ func _buildClientDeal() (market.ClientDealProposal, error) {
 
 	b, _ := ioutil.ReadAll(j)
 
-	var d market.ClientDealProposal
+	var d storagemarket.MinerDeal
 
 	if e := json.Unmarshal(b, &d); e != nil {
 		return d, _handleErr(e)
@@ -42,10 +42,10 @@ func _buildClientDeal() (market.ClientDealProposal, error) {
 
 func main() {
 	// Build test data
-	d, e := _buildClientDeal()
+	d, e := _buildDeal()
 	if e != nil {
 		_handleErr(e)
 	}
 
-	bitscreen.ScreenClientDealProposal(d)
+	bitscreen.ScreenDealProposal(d)
 }

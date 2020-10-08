@@ -9,7 +9,7 @@ import (
 
 	"github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/specs-actors/actors/builtin/market"
+	"github.com/filecoin-project/go-fil-markets/storagemarket"
 )
 
 // For now, BitScreen holds information about the bitscreen file path
@@ -67,7 +67,7 @@ func MaybeCreateBitscreen() BitScreen {
 	return b
 }
 
-func ScreenClientDealProposal(deal market.ClientDealProposal) int {
+func ScreenDealProposal(deal storagemarket.MinerDeal) int {
 	cid := deal.Proposal.PieceCID
 	return ScreenCID(cid)
 }
