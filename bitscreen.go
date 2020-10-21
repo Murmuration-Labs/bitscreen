@@ -72,14 +72,14 @@ func MaybeCreateBitscreen() BitScreen {
 // the list of CIDs in the bitscreen
 func ScreenDealProposal(deal storagemarket.MinerDeal) int {
 	cid := deal.ProposalCid
-	fmt.Printf("CID: %s\n", cid.String())
-	ScreenCID(cid)
+	fmt.Printf("CID: %s\r\n", cid.String())
+	return ScreenCID(cid)
 }
 
 // ScreenCID checks for a CID in ./murmuration/bitscreen
 // If content should be filtered, returns 0
 // If content should not be filtered, returns 1
-func ScreenCID(cid cid.Cid) {
+func ScreenCID(cid cid.Cid) int {
 	b := MaybeCreateBitscreen()
 	f, err := os.OpenFile(b.p, os.O_RDONLY, 0777)
 	sigterm(err)
@@ -92,12 +92,12 @@ func ScreenCID(cid cid.Cid) {
 		b := s.Scan()
 		if b {
 			if s.Text() == cid.String() {
-				os.Exit(1)
+				fmt.Printf("Deals for CID %s are not welcome.\r\n", cid.String())
+				return 1
 			}
 		} else {
 			break
 		}
 	}
-
-	os.Exit(0)
+	return 0
 }
