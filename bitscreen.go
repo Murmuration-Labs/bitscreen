@@ -6,31 +6,41 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
 
 	"github.com/ipfs/go-cid"
 
 	"github.com/filecoin-project/go-fil-markets/storagemarket"
 )
 
-// BitScreen holds information about the bitscreen file path
-// This may expand in the future with additional functionality
-type BitScreen struct {
-	d  string
-	fn string
-	p  string
-}
-
-// Creates BitScreen struct
-func getBitscreen() BitScreen {
-	d := ".murmuration"
-	fn := "bitscreen"
-	b := BitScreen{
-		d,
-		fn,
-		fmt.Sprintf("./%s/%s", d, fn),
+// GetPath returns the filepath to the bitscreen
+func GetPath() string {
+	r := ".murmuration"
+	fn, exists := os.LookupEnv("BITSCREEN_FILENAME")
+	if !exists {
+		fn = "bitscreen"
 	}
 
-	return b
+	return filepath.Join(r, fn)
+}
+
+// MaybeCreateBitscreen generates instance of BitScreen struct
+// and if needed, creates a bitscreen file
+func MaybeCreateBitscreen() bool {
+	p := GetPath()
+
+	if !FileExists(p) {
+		dir, _ := filepath.Split(p)
+		os.MkdirAll(dir, os.ModePerm)
+		err := ioutil.WriteFile(p, []byte(""), os.ModePerm)
+
+		if err != nil {
+			log.Fatal(err)
+			return false
+		}
+	}
+
+	return true
 }
 
 // Handle errors
@@ -51,28 +61,10 @@ func FileExists(path string) bool {
 	return true
 }
 
-// MaybeCreateBitscreen creates the ./murmuration/bitscreen file
-// if the path does not already exist
-func MaybeCreateBitscreen() BitScreen {
-	b := getBitscreen()
-
-	if !FileExists(b.d) {
-		os.MkdirAll(b.d, 0777)
-	}
-
-	if !FileExists(b.p) {
-		err := ioutil.WriteFile(b.p, []byte(""), 0777)
-		sigterm(err)
-	}
-
-	return b
-}
-
 // ScreenDealProposal compares a CID identified in the deal with
 // the list of CIDs in the bitscreen
 func ScreenDealProposal(deal storagemarket.MinerDeal) int {
 	cid := deal.ProposalCid
-	fmt.Printf("CID: %s\r\n", cid.String())
 	return ScreenCID(cid)
 }
 
@@ -80,9 +72,12 @@ func ScreenDealProposal(deal storagemarket.MinerDeal) int {
 // If content should be filtered, returns 0
 // If content should not be filtered, returns 1
 func ScreenCID(cid cid.Cid) int {
-	b := MaybeCreateBitscreen()
-	f, err := os.OpenFile(b.p, os.O_RDONLY, 0777)
-	sigterm(err)
+	MaybeCreateBitscreen()
+	p := GetPath()
+	f, err := os.OpenFile(p, os.O_RDONLY, os.ModePerm)
+	if err != nil {
+		sigterm(err)
+	}
 	defer f.Close()
 
 	s := bufio.NewScanner(f)
