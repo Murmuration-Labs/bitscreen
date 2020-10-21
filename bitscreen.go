@@ -12,7 +12,7 @@ import (
 	"github.com/filecoin-project/go-fil-markets/storagemarket"
 )
 
-// For now, BitScreen holds information about the bitscreen file path
+// BitScreen holds information about the bitscreen file path
 // This may expand in the future with additional functionality
 type BitScreen struct {
 	d  string
@@ -41,7 +41,7 @@ func sigterm(e error) {
 	}
 }
 
-// Checks whether directory or file exists
+// FileExists checks whether a directory or file exists
 func FileExists(path string) bool {
 	if _, err := os.Stat(path); err != nil {
 		if os.IsNotExist(err) {
@@ -51,7 +51,8 @@ func FileExists(path string) bool {
 	return true
 }
 
-// If the ./murmuration/bitscreen file path does not exist, create it
+// MaybeCreateBitscreen creates the ./murmuration/bitscreen file
+// if the path does not already exist
 func MaybeCreateBitscreen() BitScreen {
 	b := getBitscreen()
 
@@ -67,12 +68,15 @@ func MaybeCreateBitscreen() BitScreen {
 	return b
 }
 
+// ScreenDealProposal compares a CID identified in the deal with
+// the list of CIDs in the bitscreen
 func ScreenDealProposal(deal storagemarket.MinerDeal) int {
-	cid := deal.Proposal.PieceCID
-	return ScreenCID(cid)
+	cid := deal.ProposalCid
+	fmt.Printf("CID: %s\n", cid.String())
+	ScreenCID(cid)
 }
 
-// Checks for a CID in ./murmuration/bitscreen
+// ScreenCID checks for a CID in ./murmuration/bitscreen
 // If content should be filtered, returns 0
 // If content should not be filtered, returns 1
 func ScreenCID(cid cid.Cid) {
