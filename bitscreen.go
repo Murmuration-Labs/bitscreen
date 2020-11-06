@@ -9,8 +9,6 @@ import (
 	"path/filepath"
 
 	"github.com/ipfs/go-cid"
-
-	"github.com/filecoin-project/go-fil-markets/storagemarket"
 )
 
 // GetPath returns the filepath to the bitscreen
@@ -61,17 +59,8 @@ func FileExists(path string) bool {
 	return true
 }
 
-// ScreenDealProposal compares a CID identified in the deal with
-// the list of CIDs in the bitscreen
-func ScreenDealProposal(deal storagemarket.MinerDeal) int {
-	cid := deal.ProposalCid
-	return ScreenCID(cid)
-}
-
-// ScreenCID checks for a CID in ./murmuration/bitscreen
-// If content should be filtered, returns 0
-// If content should not be filtered, returns 1
-func ScreenCID(cid cid.Cid) int {
+// BlockCID checks for a CID in ./murmuration/bitscreen
+func BlockCid(cid cid.Cid) bool {
 	MaybeCreateBitscreen()
 	p := GetPath()
 	f, err := os.OpenFile(p, os.O_RDONLY, os.ModePerm)
@@ -88,11 +77,11 @@ func ScreenCID(cid cid.Cid) int {
 		if b {
 			if s.Text() == cid.String() {
 				fmt.Printf("Deals for CID %s are not welcome.\r\n", cid.String())
-				return 1
+				return true
 			}
 		} else {
 			break
 		}
 	}
-	return 0
+	return false
 }
