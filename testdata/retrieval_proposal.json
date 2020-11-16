@@ -1,0 +1,29 @@
+{
+   "ID":0,
+   "Receiver":"12D3KooWPjjJjP1wyJs363DQcLACrvdHFkqoP3t8SGemCu8WxAXr",
+   "PaymentInterval":1048576,
+   "DealType":"retrieval",
+   "Status":0,
+   "PayloadCID":{
+      "/":"bafykbzacea4laqix45psjv43pi436sx3ghybf6zvyvcxozvuqxo23dxbqiho2"
+   },
+   "Message":"",
+   "PricePerByte":"2",
+   "PieceCID":null,
+   "LegacyProtocol":false,
+   "TotalSent":0,
+   "CurrentInterval":0,
+   "Selector":{
+      "Raw":"oWFSomFsoWRub25loGI6PqFhYaFhPqFhQKA="
+   },
+   "PieceInfo":null,
+   "UnsealPrice":"0",
+   "StoreID":0,
+   "ChannelID":{
+      "Responder":"",
+      "ID":0,
+      "Initiator":""
+   },
+   "FundsReceived":"<nil>",
+   "PaymentIntervalIncrease":1048576
+}
