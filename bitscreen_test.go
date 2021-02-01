@@ -13,6 +13,11 @@ import (
 	"gotest.tools/assert"
 )
 
+func ScreenDealProposal(deal storagemarket.MinerDeal) bool {
+	cid := deal.ProposalCid
+	return BlockCid(cid)
+}
+
 func _handleErr(e error) error {
 	log.Fatal(e)
 	return e
@@ -65,7 +70,7 @@ func TestScreenDealProposalExists(t *testing.T) {
 	_setCID(d.ProposalCid)
 
 	result := ScreenDealProposal(d)
-	assert.Equal(t, result, 1)
+	assert.Equal(t, result, true)
 	_maybeDeleteBitscreen()
 }
 
@@ -78,5 +83,5 @@ func TestScreenDealProposalNotExists(t *testing.T) {
 		_handleErr(e)
 	}
 	result := ScreenDealProposal(d)
-	assert.Equal(t, result, 0)
+	assert.Equal(t, result, false)
 }
