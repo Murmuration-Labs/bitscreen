@@ -18,6 +18,40 @@ BitScreen then acts as an external program which provides input to the DealMakin
 
 *See also*: [Filecoin Lotus Miner Filter](https://github.com/filecoin-project/filecoin-docs/blob/master/docs/mine/lotus/miner-configuration.md#dealmaking-section)
 
+## Usage
+
+Example implementation:
+
+```
+package main
+
+import (
+	"fmt"
+	"log"
+
+	"github.com/ipfs/go-cid"
+	"github.com/Murmuration-Labs/bitscreen"
+)
+
+func main() {
+	// CID to detect
+	c, err := cid.Decode("bafzbeigai3eoy2ccc7ybwjfz5r3rdxqrinwi4rwytly24tdbh6yk7zslrm")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Screens CID
+	found, err := bitscreen.Screen(c)
+
+	// Handles found CID
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(found)
+}
+```
+
 ## Upcoming Features
 
 Future updates to the BitScreen tool will enable sharing lists between node operators, and the use of lists based on third party databases.
