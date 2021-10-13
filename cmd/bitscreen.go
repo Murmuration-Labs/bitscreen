@@ -3,15 +3,12 @@ package main
 import (
 	"log"
 	"os"
-
 	"github.com/Jeffail/gabs"
 	"github.com/Murmuration-Labs/bitscreen"
 	"github.com/ipfs/go-cid"
 )
 
-func main() {
-	bitscreen.MaybeCreateBitscreen()
-
+func getDealInfo() {
 	proposal, err := gabs.ParseJSONBuffer(os.Stdin)
 	if err != nil {
 		log.Fatalf("Unable to parse proposal JSON: %s", err)
@@ -26,9 +23,26 @@ func main() {
 		c, err := cid.Parse(proposal.Search(path...).Data())
 		// check only if found a valid CID
 		if err == nil {
-			if bitscreen.BlockCid(c) {
-				os.Exit(1)
-			}
+			return c
 		}
 	}
+    return nil
+}
+
+func main() {
+    cid := getDealInfo()
+    if cid == nil {
+        os.Exit(1)
+    }
+
+    if isLoadFromFileEnabled() {
+        if bitscreen.BlockCidFromProcess(c) {
+            os.Exit(1)
+        }
+
+    } else {
+        if bitscreen.BlockCidFromFile(c) {
+            os.Exit(1)
+        }
+    }
 }
