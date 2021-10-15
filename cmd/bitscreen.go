@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os"
+	"errors"
 	"github.com/Jeffail/gabs"
 	"github.com/Murmuration-Labs/bitscreen"
 	"github.com/ipfs/go-cid"
@@ -28,7 +29,7 @@ func getDealInfo() (cid.Cid, error) {
 			return c, err
 		}
 	}
-    return c, err
+  return c, errors.New("No valid CID found.")
 }
 
 func main() {

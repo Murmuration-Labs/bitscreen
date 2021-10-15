@@ -9,8 +9,15 @@ import (
 	"path/filepath"
 	"github.com/ipfs/go-cid"
 	"github.com/pebbe/zmq4"
-
+	"github.com/Jeffail/gabs"
 )
+
+type updaterResponse struct {
+	reject int
+	dealCid string
+	cid string
+	err string
+}
 
 /* Supported env vars */
 
@@ -134,19 +141,48 @@ func BlockCidFromFile(cidToCheck cid.Cid) bool {
 // the bitscreen-updater process
 func BlockCidFromProcess(cidToCheck cid.Cid) bool {
     socketPort := GetSocketPort()
-
+    fmt.Printf("%+v\n", cidToCheck)
     zctx, _ := zmq4.NewContext()
-
     // Socket to talk to server
     fmt.Printf("Connecting to the server...\n")
     s, _ := zctx.NewSocket(zmq4.REQ)
     s.Connect("tcp://localhost:" + socketPort)
 
-    fmt.Printf("Sending cid request %s...\n", cidToCheck.String())
-    s.Send(cidToCheck.String(), 0)
-    cidBlocked, _ := s.Recv(0)
-    fmt.Printf("Received reply [ %s ]\n", cidBlocked)
-	log.Printf("dealer received '%s' for cid '%s'", cidBlocked, cidToCheck.String())
+		request := getRequestForCid(cidToCheck)
 
-	return cidBlocked == "1"
+    fmt.Printf("Sending cid request %s...\n", request)
+    s.Send(request, 0)
+    responseJSON, _ := s.Recv(0)
+		response := getResponseFromJSON(responseJSON)
+    fmt.Printf("Received reply [ %s ]\n", responseJSON)
+	  log.Printf("dealer received '%d' for cid '%s'", response.reject, cidToCheck.String())
+
+	return response.reject == 1
+}
+
+func getRequestForCid(cid cid.Cid) string {
+		json := gabs.New()
+		json.Set(cid.String(), "cid")
+
+		return json.String()
+}
+
+func getResponseFromJSON(responseJSON string) updaterResponse {
+		response := updaterResponse{}
+		parsed, err := gabs.ParseJSON([]byte(responseJSON))
+		if err != nil {
+				return response
+		}
+
+		if parsed.Exists("error") {
+			response.err = parsed.Path("error").Data().(string)
+
+			return response
+		}
+
+		response.reject = int(parsed.Path("reject").Data().(float64))
+		response.dealCid = parsed.Path("dealCid").Data().(string)
+		response.cid = parsed.Path("cid").Data().(string)
+
+		return response
 }
