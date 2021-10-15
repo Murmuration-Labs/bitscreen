@@ -1,9 +1,8 @@
 package bitscreen
 
 import (
-	"fmt"
-	"io/ioutil"
 	"log"
+	"io/ioutil"
 	"os"
 	"path/filepath"
 	"github.com/ipfs/go-cid"
@@ -136,21 +135,16 @@ func BlockCidFromFile(cidToCheck cid.Cid) bool {
 // the bitscreen-updater process
 func BlockCidFromProcess(cidToCheck cid.Cid) bool {
     socketPort := GetSocketPort()
-    fmt.Printf("%+v\n", cidToCheck)
     zctx, _ := zmq4.NewContext()
     // Socket to talk to server
-    fmt.Printf("Connecting to the server...\n")
     s, _ := zctx.NewSocket(zmq4.REQ)
     s.Connect("tcp://localhost:" + socketPort)
 
 		request := getRequestForCid(cidToCheck)
 
-    fmt.Printf("Sending cid request %s...\n", request)
     s.Send(request, 0)
     responseJSON, _ := s.Recv(0)
 		response := getResponseFromJSON(responseJSON)
-    fmt.Printf("Received reply [ %s ]\n", responseJSON)
-	  log.Printf("dealer received '%d' for cid '%s'", response.reject, cidToCheck.String())
 
 	return response.reject == 1
 }
