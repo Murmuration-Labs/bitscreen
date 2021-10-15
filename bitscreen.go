@@ -1,7 +1,6 @@
 package bitscreen
 
 import (
-	"bufio"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -114,26 +113,22 @@ func FileExists(path string) bool {
 func BlockCidFromFile(cidToCheck cid.Cid) bool {
 	MaybeCreateBitscreen()
 	p := GetPath()
-	f, err := os.OpenFile(p, os.O_RDONLY, os.ModePerm)
+
+	cidList, err := gabs.ParseJSONFile(p)
 	if err != nil {
-		sigterm(err)
+			panic(err)
 	}
-	defer f.Close()
 
-	s := bufio.NewScanner(f)
-	sigterm(s.Err())
+	stringList, err := cidList.Children()
 
-	for {
-		b := s.Scan()
-		if b {
-			if s.Text() == cidToCheck.String() {
-				fmt.Printf("Deals for CID %s are not welcome.\r\n", cidToCheck.String())
-				return true
-			}
-		} else {
-			break
+	for _, cidString := range stringList {
+		string := cidString.Data().(string)
+
+		if string == cidToCheck.String() {
+			return true
 		}
 	}
+
 	return false
 }
 
