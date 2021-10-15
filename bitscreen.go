@@ -27,7 +27,7 @@ const BITSCREEN_SOCKET_PORT = "BITSCREEN_SOCKET_PORT"
 //    Default is to use the bitscreen-updater process (connects to socket port BITSCREEN_SOCKET_PORT)
 const BITSCREEN_LOAD_FROM_FILE = "BITSCREEN_LOAD_FROM_FILE"
 
-func isLoadFromFileEnabled() bool {
+func IsLoadFromFileEnabled() bool {
 	loadFromFile, exists := os.LookupEnv(BITSCREEN_LOAD_FROM_FILE)
 	if !exists || loadFromFile == "" {
 		loadFromFile = "false"

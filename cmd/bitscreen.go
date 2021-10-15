@@ -8,7 +8,9 @@ import (
 	"github.com/ipfs/go-cid"
 )
 
-func getDealInfo() {
+func getDealInfo() (cid.Cid, error) {
+	var c cid.Cid
+
 	proposal, err := gabs.ParseJSONBuffer(os.Stdin)
 	if err != nil {
 		log.Fatalf("Unable to parse proposal JSON: %s", err)
@@ -23,25 +25,24 @@ func getDealInfo() {
 		c, err := cid.Parse(proposal.Search(path...).Data())
 		// check only if found a valid CID
 		if err == nil {
-			return c
+			return c, err
 		}
 	}
-    return nil
+    return c, err
 }
 
 func main() {
-    cid := getDealInfo()
-    if cid == nil {
+    cid, err := getDealInfo()
+    if err != nil {
         os.Exit(1)
     }
 
-    if isLoadFromFileEnabled() {
-        if bitscreen.BlockCidFromProcess(c) {
+    if bitscreen.IsLoadFromFileEnabled() {
+        if bitscreen.BlockCidFromFile(cid) {
             os.Exit(1)
         }
-
     } else {
-        if bitscreen.BlockCidFromFile(c) {
+        if bitscreen.BlockCidFromProcess(cid) {
             os.Exit(1)
         }
     }
