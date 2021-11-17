@@ -1,25 +1,74 @@
 package bitscreen
 
 import (
-	"bufio"
-	"fmt"
-	"io/ioutil"
 	"log"
+	"io/ioutil"
 	"os"
 	"path/filepath"
-
 	"github.com/ipfs/go-cid"
+	"github.com/pebbe/zmq4"
+	"github.com/Jeffail/gabs"
 )
 
-// GetPath returns the filepath to the bitscreen
-func GetPath() string {
-	r := ".murmuration"
-	fn, exists := os.LookupEnv("BITSCREEN_FILENAME")
-	if !exists {
-		fn = "bitscreen"
+type updaterResponse struct {
+	reject int
+	dealCid string
+	cid string
+	err string
+}
+
+/* Supported env vars */
+
+//   BITSCREEN_FILENAME -- name of file containing the CIDs to block, defaults to `bitscreen`
+const BITSCREEN_FILENAME = "BITSCREEN_FILENAME"
+
+//   BITSCREEN_PATH     -- path to the bitscreen file, defaults to `.murmuration` in the user home dir
+const BITSCREEN_PATH = "BITSCREEN_PATH"
+
+//   BITSCREEN_SOCKET_PORT  -- server socket port of the bitscreen-updater process
+const BITSCREEN_SOCKET_PORT = "BITSCREEN_SOCKET_PORT"
+
+// BITSCREEN_LOAD_FROM_FILE -- specify whether to use the bitscreen file for checking cids.
+//    Default is to use the bitscreen-updater process (connects to socket port BITSCREEN_SOCKET_PORT)
+const BITSCREEN_LOAD_FROM_FILE = "BITSCREEN_LOAD_FROM_FILE"
+
+func IsLoadFromFileEnabled() bool {
+	loadFromFile, exists := os.LookupEnv(BITSCREEN_LOAD_FROM_FILE)
+	if !exists || loadFromFile == "" {
+		loadFromFile = "false"
 	}
 
-	return filepath.Join(r, fn)
+    return (loadFromFile == "1") || (loadFromFile == "true")
+}
+
+func GetBitscreenFilename() string {
+	filename, exists := os.LookupEnv(BITSCREEN_FILENAME)
+	if !exists || filename == "" {
+		filename = "bitscreen"
+	}
+	return filename
+}
+
+func GetSocketPort() string {
+	socketPort, exists := os.LookupEnv(BITSCREEN_SOCKET_PORT)
+	if !exists || socketPort == "" {
+		socketPort = "5555"
+	}
+
+    return socketPort
+}
+
+// GetPath returns the filepath to the bitscreen file
+func GetPath() string {
+    fn := GetBitscreenFilename()
+	path, exists := os.LookupEnv(BITSCREEN_PATH)
+	if !exists || path == "" {
+        homeDir, _ := os.UserHomeDir()
+        defaultPath := filepath.Join(homeDir, ".murmuration")
+		return filepath.Join(defaultPath, fn)
+	} else {
+	    return filepath.Join(path, fn)
+	}
 }
 
 // MaybeCreateBitscreen generates instance of BitScreen struct
@@ -59,29 +108,70 @@ func FileExists(path string) bool {
 	return true
 }
 
-// BlockCID checks for a CID in ./murmuration/bitscreen
-func BlockCid(cid cid.Cid) bool {
+// BlockCidFromFile checks for a CID in ./murmuration/bitscreen
+func BlockCidFromFile(cidToCheck cid.Cid) bool {
 	MaybeCreateBitscreen()
 	p := GetPath()
-	f, err := os.OpenFile(p, os.O_RDONLY, os.ModePerm)
+
+	cidList, err := gabs.ParseJSONFile(p)
 	if err != nil {
-		sigterm(err)
+			panic(err)
 	}
-	defer f.Close()
 
-	s := bufio.NewScanner(f)
-	sigterm(s.Err())
+	stringList, err := cidList.Children()
 
-	for {
-		b := s.Scan()
-		if b {
-			if s.Text() == cid.String() {
-				fmt.Printf("Deals for CID %s are not welcome.\r\n", cid.String())
-				return true
-			}
-		} else {
-			break
+	for _, cidString := range stringList {
+		string := cidString.Data().(string)
+
+		if string == cidToCheck.String() {
+			return true
 		}
 	}
+
 	return false
+}
+
+// BlockCidFromProcess requests the block status of cid from
+// the bitscreen-updater process
+func BlockCidFromProcess(cidToCheck cid.Cid) bool {
+    socketPort := GetSocketPort()
+    zctx, _ := zmq4.NewContext()
+    // Socket to talk to server
+    s, _ := zctx.NewSocket(zmq4.REQ)
+    s.Connect("tcp://localhost:" + socketPort)
+
+		request := getRequestForCid(cidToCheck)
+
+    s.Send(request, 0)
+    responseJSON, _ := s.Recv(0)
+		response := getResponseFromJSON(responseJSON)
+
+	return response.reject == 1
+}
+
+func getRequestForCid(cid cid.Cid) string {
+		json := gabs.New()
+		json.Set(cid.String(), "cid")
+
+		return json.String()
+}
+
+func getResponseFromJSON(responseJSON string) updaterResponse {
+		response := updaterResponse{}
+		parsed, err := gabs.ParseJSON([]byte(responseJSON))
+		if err != nil {
+				return response
+		}
+
+		if parsed.Exists("error") {
+			response.err = parsed.Path("error").Data().(string)
+
+			return response
+		}
+
+		response.reject = int(parsed.Path("reject").Data().(float64))
+		response.dealCid = parsed.Path("dealCid").Data().(string)
+		response.cid = parsed.Path("cid").Data().(string)
+
+		return response
 }

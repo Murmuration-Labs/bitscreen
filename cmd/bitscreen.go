@@ -3,14 +3,14 @@ package main
 import (
 	"log"
 	"os"
-
+	"errors"
 	"github.com/Jeffail/gabs"
 	"github.com/Murmuration-Labs/bitscreen"
 	"github.com/ipfs/go-cid"
 )
 
-func main() {
-	bitscreen.MaybeCreateBitscreen()
+func getDealInfo() (cid.Cid, error) {
+	var c cid.Cid
 
 	proposal, err := gabs.ParseJSONBuffer(os.Stdin)
 	if err != nil {
@@ -26,9 +26,25 @@ func main() {
 		c, err := cid.Parse(proposal.Search(path...).Data())
 		// check only if found a valid CID
 		if err == nil {
-			if bitscreen.BlockCid(c) {
-				os.Exit(1)
-			}
+			return c, err
 		}
 	}
+  return c, errors.New("No valid CID found.")
+}
+
+func main() {
+    cid, err := getDealInfo()
+    if err != nil {
+        os.Exit(1)
+    }
+
+    if bitscreen.IsLoadFromFileEnabled() {
+        if bitscreen.BlockCidFromFile(cid) {
+            os.Exit(1)
+        }
+    } else {
+        if bitscreen.BlockCidFromProcess(cid) {
+            os.Exit(1)
+        }
+    }
 }

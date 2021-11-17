@@ -20,4 +20,5 @@ BitScreen then acts as an external program which provides input to the DealMakin
 
 ## Upcoming Features
 
-Future updates to the BitScreen tool will enable sharing lists between node operators, and the use of lists based on third party databases.
+Future updates to the BitScreen tool will enable sharing lists between node operators, and the use of 
+lists based on third party databases.
