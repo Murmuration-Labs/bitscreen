@@ -8,6 +8,8 @@ import (
 	"github.com/ipfs/go-cid"
 	"github.com/pebbe/zmq4"
 	"github.com/Jeffail/gabs"
+	"encoding/hex"
+	"golang.org/x/crypto/sha3"
 )
 
 type updaterResponse struct {
@@ -113,6 +115,13 @@ func BlockCidFromFile(cidToCheck cid.Cid) bool {
 	MaybeCreateBitscreen()
 	p := GetPath()
 
+	unhashedCid := cidToCheck.String()
+	hash := sha3.NewLegacyKeccak256()
+	var buf []byte
+	hash.Write([]byte(unhashedCid))
+	buf = hash.Sum(nil)
+	var hashedCid = hex.EncodeToString(buf)
+
 	cidList, err := gabs.ParseJSONFile(p)
 	if err != nil {
 			panic(err)
@@ -123,7 +132,7 @@ func BlockCidFromFile(cidToCheck cid.Cid) bool {
 	for _, cidString := range stringList {
 		string := cidString.Data().(string)
 
-		if string == cidToCheck.String() {
+		if string == hashedCid {
 			return true
 		}
 	}
