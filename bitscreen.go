@@ -132,7 +132,7 @@ func BlockCidFromFile(cidToCheck cid.Cid) bool {
 	for _, cidString := range stringList {
 		string := cidString.Data().(string)
 
-		if string == hashedCid {
+		if string == hashedCid || string == unhashedCid {
 			return true
 		}
 	}
