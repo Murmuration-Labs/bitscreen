@@ -4,7 +4,7 @@
 
 Welcome to BitScreen, a software service provided by Murmuration Labs LLC. As used in these Terms of Use, "us" or "we" or “ML” refers to Murmuration Labs and its affiliates.
 
-**__Please read the following carefully as it affects your legal rights.__**
+__**Please read the following carefully as it affects your legal rights.**__
 
 These terms of service (“Terms”) between you and Murmuration Labs LLC, along with the BitScreen Privacy Policy, govern your use of all Websites and online services (the “Services”) related to BitScreen. By clicking your consent (e.g. “Continue,” “Sign-in,” or “Sign-up,”) or by using our Services, you agree to these Terms, including the mandatory arbitration provision and class action waiver in the Dispute Resolution; Binding Arbitration Section. For the purposes of these Terms, (i) “Websites” refers to bitscreen.co, as well as the other websites that we operate and that link to these Terms. If you do not agree to these Terms, you may not access or use our Websites or Services.
 
