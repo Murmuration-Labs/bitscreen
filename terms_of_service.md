@@ -4,7 +4,7 @@
 
 Welcome to BitScreen, a software service provided by Murmuration Labs LLC. As used in these Terms of Use, "us" or "we" or “ML” refers to Murmuration Labs and its affiliates.
 
-Please read the following carefully as it affects your legal rights.
+**Please read the following carefully as it affects your legal rights.**
 
 These terms of service (“Terms”) between you and Murmuration Labs LLC, along with the BitScreen Privacy Policy, govern your use of all Websites and online services (the “Services”) related to BitScreen. By clicking your consent (e.g. “Continue,” “Sign-in,” or “Sign-up,”) or by using our Services, you agree to these Terms, including the mandatory arbitration provision and class action waiver in the Dispute Resolution; Binding Arbitration Section. For the purposes of these Terms, (i) “Websites” refers to bitscreen.co, as well as the other websites that we operate and that link to these Terms. If you do not agree to these Terms, you may not access or use our Websites or Services.
 
@@ -27,7 +27,7 @@ Murmuration Labs
 San Francisco, CA 94107
 Attn: BitScreen Abuse Team
 
-Please provide detailed information supporting your complaint. Please bear in mind that unless you have requested us not to share your information through the opt-out procedure described on our abuse page, BitScreen may publish copies of, or information from your notification or complaint to its online transparency hub (with personal data redacted). For more information about how BitScreen handles complaints please visit https://bitscreen.co/abuse/.
+Please provide detailed information supporting your complaint. Please bear in mind that unless you have requested us not to share your information through the opt-out procedure described on our abuse page, BitScreen may publish copies of, or information from your notification or complaint to its online transparency hub (with personal data redacted). 
 
 ### TERMINATION OF USE; DISCONTINUATION AND MODIFICATION OF THE WEBSITES AND ONLINE SERVICES
 
@@ -69,7 +69,7 @@ In countries where exclusions or limitations of liability are allowed, ML won’
 
 ### DISPUTE RESOLUTION; BINDING ARBITRATION
 
-We want to address your concerns without needing a formal legal case. Before filing a claim against ML, you agree to first contact us and attempt to resolve the claim informally by sending a written notice of your claim by email at support@bmurmuration.ai or by certified mail addressed to Murmuration Labs LLC, 655 Tennessee Street, Unit 103, San Francisco, CA 94107. The notice must (a) include your name, residence address, email address, and telephone number; (b) describe the nature and basis of the claim; and (c) set forth the specific relief sought. Our notice to you will be sent to the email address included in the notice and will contain the information described above. If we can’t resolve matters within thirty (30) days after any notice is sent (subject to mutual extensions agreed to in writing by the parties), either party may initiate a formal proceeding.
+We want to address your concerns without needing a formal legal case. Before filing a claim against ML, you agree to first contact us and attempt to resolve the claim informally by sending a written notice of your claim by email at support [@] murmuration.ai or by certified mail addressed to Murmuration Labs LLC, 655 Tennessee Street, Unit 103, San Francisco, CA 94107. The notice must (a) include your name, residence address, email address, and telephone number; (b) describe the nature and basis of the claim; and (c) set forth the specific relief sought. Our notice to you will be sent to the email address included in the notice and will contain the information described above. If we can’t resolve matters within thirty (30) days after any notice is sent (subject to mutual extensions agreed to in writing by the parties), either party may initiate a formal proceeding.
 
 Please read the following section carefully because it requires you to arbitrate certain disputes and claims with ML and limits the manner in which you can seek relief from us, unless you opt out of arbitration by following the instructions set forth below. No class or representative actions or arbitrations are allowed under this arbitration provision. In addition, arbitration precludes you from suing in court or having a jury trial.
 
