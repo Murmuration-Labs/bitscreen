@@ -23,8 +23,11 @@ BitScreen is an opt-in distributed list management system for Filecoin storage p
 Copyright holders or their agents concerned with material served through Filecoin’s network should submit a notification of claimed copyright infringement or other abuse to support [@] murmuration.ai you would prefer not to use our complaint submission form, you may mail your complaint to:
 
 Murmuration Labs
+
 655 Tennessee Street, Unit 103
+
 San Francisco, CA 94107
+
 Attn: BitScreen Abuse Team
 
 Please provide detailed information supporting your complaint. Please bear in mind that unless you have requested us not to share your information through the opt-out procedure described on our abuse page, BitScreen may publish copies of, or information from your notification or complaint to its online transparency hub (with personal data redacted). 
