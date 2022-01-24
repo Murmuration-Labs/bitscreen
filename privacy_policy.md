@@ -108,9 +108,6 @@ We may assign or transfer this Policy, as well as information covered by this Po
 ### 12. CONTACT INFORMATION
 
 Murmuration Labs LLC
-
 655 Tennessee St, Unit 103
-
 San Francisco, CA 94107
-
 privacy [@] murmuration.ai
