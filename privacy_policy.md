@@ -56,9 +56,9 @@ Please note that the "personal information" referenced in this Privacy Policy me
 
 If you are an individual from the European Economic Area (the "EEA"), the UK or Switzerland, please note that our legal basis for collecting and using your personal information will depend on the personal information collected and the specific context in which we collect it. We normally will collect personal information from you only where: (a) we have your consent to do so, (b) where we need your personal information to perform a contract with you (e.g. to deliver the BitScreen Services you have requested), or (c) where the processing is in our legitimate interests. Please note that in most cases, if you do not provide the requested information, BitScreen will not be able to provide the requested service to you.
 
-In some cases, we may also have a legal obligation to collect personal information from you, or may otherwise need the personal information to protect your vital interests or those of another person. Where we rely on your consent to process your personal data, you have the right to withdraw or decline consent at any time. Where we rely on our legitimate interests to process your personal data, you have the right to object by emailing us at privacy@murmuration.ai.
+In some cases, we may also have a legal obligation to collect personal information from you, or may otherwise need the personal information to protect your vital interests or those of another person. Where we rely on your consent to process your personal data, you have the right to withdraw or decline consent at any time. Where we rely on our legitimate interests to process your personal data, you have the right to object by emailing us at privacy [@] murmuration.ai.
 
-If you have any questions about or need further information concerning the legal basis on which we collect and use your personal information, please contact us at privacy@murmuration.ai.
+If you have any questions about or need further information concerning the legal basis on which we collect and use your personal information, please contact us at privacy [@] murmuration.ai.
 
 ### 5. INFORMATION SHARING
 
@@ -85,7 +85,7 @@ If you are accessing or using our Websites or Services or otherwise providing in
 
 ### 7. DATA SUBJECT RIGHTS AND CHOICES
 
-BitScreen recognizes individuals' data protection rights. You have the right to access, correct, update, port, or delete your personal information, and to restrict or object to the processing of your personal information (each of these a "Rights Request"). You may email us at privacy@murmuration.ai with any Rights Request, and we will respond within thirty (30) days. Customers and Administrative Users also can access, correct, export, or update their Account Information by editing their profile or organization record at app.bitscreen.co/settings.
+BitScreen recognizes individuals' data protection rights. You have the right to access, correct, update, port, or delete your personal information, and to restrict or object to the processing of your personal information (each of these a "Rights Request"). You may email us at privacy [@] murmuration.ai with any Rights Request, and we will respond within thirty (30) days. Customers and Administrative Users also can access, correct, export, or update their Account Information by editing their profile or organization record at app.bitscreen.co/settings.
 
 For any Rights Request, we will need to verify a requestor is inquiring about their own information before we can assist. Where a Rights Request may implicate the personal information of another individual, we must balance the request against the risk of violating another person's privacy rights. We will comply with Rights Requests to the extent required by applicable law or the US-Swiss or US-EU Privacy Shield. In the EEA, the UK, and Switzerland, you also have the right to lodge a complaint with a supervisory authority.
 
@@ -95,7 +95,7 @@ BitScreen will send you service-related communications, including transactional 
 
 ### 9. DATA SECURITY, DATA INTEGRITY AND ACCESS
 
-We take all reasonable steps to protect information we receive from you from accidental or unlawful destruction, loss, alteration, and unauthorized disclosure or access. We have put in place appropriate physical, technical and administrative measures to safeguard and secure your information, and where appropriate we make use of privacy-enhancing technologies such as encryption. If you have any questions about the security of your personal information, you can contact us at privacy@murmuration.ai.
+We take all reasonable steps to protect information we receive from you from accidental or unlawful destruction, loss, alteration, and unauthorized disclosure or access. We have put in place appropriate physical, technical and administrative measures to safeguard and secure your information, and where appropriate we make use of privacy-enhancing technologies such as encryption. If you have any questions about the security of your personal information, you can contact us at privacy [@] murmuration.ai.
 
 ### 10. NOTIFICATION OF CHANGES
 
