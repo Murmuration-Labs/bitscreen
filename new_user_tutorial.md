@@ -7,7 +7,7 @@ This guide assumes that you are already up and running as a Filecoin storage pro
 
 ## 1. BitScreen Prerequisites
 
-a) [GO version 1.17.1](https://go.dev/dl/#go1.17.1)
+a.  [GO version 1.17.1](https://go.dev/dl/#go1.17.1)
     
   * Debian based: `sudo apt update && sudo apt upgrade && sudo apt install golang-go`
  
