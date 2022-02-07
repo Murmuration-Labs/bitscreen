@@ -1,4 +1,4 @@
-# Bitscreen Installation & Usage Tutorial
+# Bitscreen Installation Tutorial
 
 This guide presents the steps a Filecoin storage provider must take to install and use the BitScreen tools. Using Bitscreen, the storage provider can prevent certain files (decided by the storage provider) from being stored and/or retrieved.
 
