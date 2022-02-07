@@ -41,16 +41,19 @@ This should install the latest version of the BitScreen-CLI which at the moment 
 
 ## Registration via BitScreen-CLI & BitScreen GUI Client
 
-To obtain a BitScreen account you can use two options:
+To obtain a BitScreen account you can use either of the two following options:
 
 1. Directly through the BitScreen-CLI, using the command `bitscreen-cli auth register WALLET-ADDRESS` (replace WALLET-ADDRESS with the appropriate value for the Ethereum wallet address you want to use to log into and manage BitScreen)
 
-2. Through the BitScreen GUI Client which can be found at: https://app.bitscreen.co. You will need a browser that has the MetaMask extension installed in order to do so, along with an Ethereum wallet address. If you have multiple addresses associated with the same wallet, please make sure you take notice of which one is used to register as it will matter in the following step.
+2. Through the BitScreen GUI Client which can be found at: https://app.bitscreen.co. 
+
+    * You will need a browser that has the MetaMask extension installed in order to do so, along with an Ethereum wallet address. 
+    * If you have multiple addresses associated with the same wallet, please make sure you take notice of which one is used to register as it will matter in the following step.
 
 
 ## Authentication of BitScreen-CLI
 
-1. Obtain the information of the account created at step 3.
+1. Obtain the information of the account created in the previous step.
 
     * This can be done through the usage of either a Private Key of the account or using the Recovery Phrase in case the account is associated directly to the master key. 
 
@@ -79,24 +82,28 @@ In both cases, after being successfully authenticated you can optionally save th
 
 ## Run BitScreen-CLI Setup Installation
 
-Before running the below command make sure the environment variable LOTUS_MINER_PATH is set. This variable should have been set during the Lotus Node & Miner installation process.
+Before running the below command make sure the environment variable `LOTUS_MINER_PATH` is set. This variable should have been set during the Lotus Node & Miner installation process.
 
-* Command: `bitscreen-cli setup install`
+  * Then run the command: `bitscreen-cli setup install`
 
-This process is installing and configuring two of the main components of the filtering process: the BitScreen Updater and the BitScreen Plugin. The BitScreen Updater tool is used to fetch and store the lists of filters you want to use from the server and to provide them to the BitScreen Plugin which in turn communicates with the Lotus Node.
+This process will install and configure two of the main components of the filtering process: the BitScreen Updater and the BitScreen Plugin. 
 
-When this prompt appears during the setup process: Would you like to authenticate the BitScreen Updater with your CLI credentials? -> You can opt to use the credentials used to login into the BitScreen-CLI for the Updater as well. We recommend you doing so!
+  * The BitScreen Updater tool is used to fetch and store the lists of filters you want to use from the server, and to provide them to the BitScreen Plugin, which in turn communicates with the Lotus Node.
+  * **Note:** When this prompt appears during the setup process: `Would you like to authenticate the BitScreen Updater with your CLI credentials?` You can optionally use the BitScreen-CLI login credentials for the Updater as well. We recommend doing so!
 
-To confirm that the setup was done properly please check that the Lotus Miner was configured properly to use the BitScreen Suite. In order to do so you must check that the variables 'Filter' and 'RetrievalFilter' (which should be found in ~/.lotusminer/config.toml if not previously configured otherwise) point towards the BitScreen go plugin. Debian based should be: /home/USERNAME/go/bin/bitscreen.
+To confirm that the BitScreen setup was done properly in Lotus, please check the following: 
+
+  * Verify that the variables 'Filter' and 'RetrievalFilter' (which should be found in `~/.lotusminer/config.toml`, if not previously configured otherwise) point towards the BitScreen GO plugin. 
+  * Debian based should be: `/home/USERNAME/go/bin/bitscreen`.
 
 
 ## Run the BitScreen Updater
 
-* Command: `bitscreen-updater start`
+  * Command: `bitscreen-updater start`
 
-* Check if the tool was properly started by using the command: `bitscreen-updater status`
+  * Check if the tool was properly started by using the command: `bitscreen-updater status`
 
-* The logs which will show the BitScreen Updater's activity should be found at the following path: /tmp/bitscreen_updater.log
+  * The logs which will show the BitScreen Updater's activity should be found at the following path: /tmp/bitscreen_updater.log
 
 
 ## 7. Filtering Retrieval and Storage Deals
