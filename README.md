@@ -1,5 +1,7 @@
 # BitScreen Overview
 
+  * [BitScreen Installation & Usage](https://github.com/Murmuration-Labs/bitscreen/blob/master/README.md#bitscreen-installation--usage)
+
 ## What is BitScreen?
 
 BitScreen is a distributed file filtering system for Filecoin Network Storage Providers. Its aim is to give Storage Providers on the Filecoin Network granular control over files being stored and retrieved through their Lotus node. Using BitScreen, a Storage Provider can choose to prevent storage and retrieval deals related to specified CIDs, in order to mitigate the risk of hosting potentially illegal or otherwise high-risk content. 
