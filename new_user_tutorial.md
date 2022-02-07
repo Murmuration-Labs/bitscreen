@@ -39,13 +39,13 @@ This should install the latest version of the BitScreen-CLI which at the moment 
   * **Note:** If the "bitscreen-cli" command is not found, you may be missing the python binary path from your `$PATH`. You can add it using: `export PATH=$PATH:/home/$USER/.local/bin`
 
 
-## Registration Process: BitScreen-CLI / BitScreen GUI Client
+## Registration via BitScreen-CLI & BitScreen GUI Client
 
 To obtain a BitScreen account you can use two options:
 
-A) Directly through the BitScreen-CLI, using the command `bitscreen-cli auth register WALLET-ADDRESS` (replace WALLET-ADDRESS with the appropriate value for the Ethereum wallet address you want to use to log into and manage BitScreen)
+1. Directly through the BitScreen-CLI, using the command `bitscreen-cli auth register WALLET-ADDRESS` (replace WALLET-ADDRESS with the appropriate value for the Ethereum wallet address you want to use to log into and manage BitScreen)
 
-B) Through the BitScreen GUI Client which can be found at: https://app.bitscreen.co. You will need a browser that has the MetaMask extension installed in order to do so, along with an Ethereum wallet address. If you have multiple addresses associated with the same wallet, please make sure you take notice of which one is used to register as it will matter in the following step.
+2. Through the BitScreen GUI Client which can be found at: https://app.bitscreen.co. You will need a browser that has the MetaMask extension installed in order to do so, along with an Ethereum wallet address. If you have multiple addresses associated with the same wallet, please make sure you take notice of which one is used to register as it will matter in the following step.
 
 
 ## Authenticating BitScreen-CLI
