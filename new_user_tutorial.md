@@ -5,9 +5,9 @@ This guide presents the steps a Filecoin storage provider must take to install a
 By following the steps provided in this guide it means you are already an 'up-and-running' Filecoin storage provider, therefore you already have an active and working Filecoin Lotus Node & Miner. If this is not the case, you can follow the [steps provided by Protocol Labs here](https://lotus.filecoin.io/docs/set-up/install).
 
 
-## 1. BitScreen Prerequisites:
+## 1. BitScreen Prerequisites
 
-a) [GO version 1.17.1](https://go.dev/dl/#go1.17.1)
+a) [GO version 1.17.1](https://go.dev/dl/#go1.17.1) (Check links to download)
     
   * Debian based: `sudo apt update && sudo apt upgrade && sudo apt install golang-go`
  
