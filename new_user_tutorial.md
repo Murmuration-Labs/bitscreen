@@ -7,23 +7,23 @@ This guide assumes that you are already up and running as a Filecoin storage pro
 
 ## 1. BitScreen Prerequisites
 
-A)  [GO version 1.17.1](https://go.dev/dl/#go1.17.1)
+1. [GO version 1.17.1](https://go.dev/dl/#go1.17.1)
     
   * Debian based: `sudo apt update && sudo apt upgrade && sudo apt install golang-go`
  
-B)  [Python 3.9](https://www.python.org/downloads/release/python-390/)
+2. [Python 3.9](https://www.python.org/downloads/release/python-390/)
     
   * Debian based: `sudo apt update && sudo apt install software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.9`
  
   * **Note:** Any Python 3 version 3.7+ will work.
  
-C) [pip for Python 3](https://pip.pypa.io/en/stable/installation/) (In some cases it may not come with Python out of the box).  
+3. [pip for Python 3](https://pip.pypa.io/en/stable/installation/) (In some cases it may not come with Python out of the box).  
 
   * **Note:** The versions of hat are currently fully functional in the installation process are pip 20.2.3 & pip 20.3.4.
     
   * Debian based: `sudo apt install python3-pip`
 
-D) ZeroMQ library - used for the communication between the Bitscreen Plugin and the Bitscreen Updater
+4. ZeroMQ library - used for the communication between the Bitscreen Plugin and the Bitscreen Updater
 
   * Debian based: `sudo apt install libzmq3-dev`
 
