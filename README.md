@@ -63,7 +63,7 @@ BitScreen has the following components, which operators can use in the combinati
 3. **List Updater:** Daemon that periodically checks List Manager for presence of CIDs requested by Lotus Plugin. If installed, overrides Local CID List.
 4. **List Manager (optional):** Advanced cloud-based utility to create, share & import filter lists
     * [GUI client](http://app.bitscreen.co/)
-    * [CLI](https://pypi.org/project/bitscreen-cli/)
+    * [CLI](https://github.com/Murmuration-Labs/bitscreen-cli/blob/main/README.md)
 
 ### Modes of use:  
 
