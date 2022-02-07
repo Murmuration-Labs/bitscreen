@@ -5,30 +5,30 @@ This guide presents the steps a Filecoin storage provider must take to install a
 This guide assumes that you are already up and running as a Filecoin storage provider, and already have an active and working Filecoin Lotus node. If this is not the case, please refer to the [steps provided by Protocol Labs here](https://lotus.filecoin.io/docs/set-up/install).
 
 
-## 1. BitScreen Prerequisites
+## BitScreen Prerequisites
 
 1. [GO version 1.17.1](https://go.dev/dl/#go1.17.1)
     
-  * Debian based: `sudo apt update && sudo apt upgrade && sudo apt install golang-go`
+    * Debian based: `sudo apt update && sudo apt upgrade && sudo apt install golang-go`
  
 2. [Python 3.9](https://www.python.org/downloads/release/python-390/)
     
-  * Debian based: `sudo apt update && sudo apt install software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.9`
+    * Debian based: `sudo apt update && sudo apt install software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.9`
  
-  * **Note:** Any Python 3 version 3.7+ will work.
+    * **Note:** Any Python 3 version 3.7+ will work.
  
 3. [pip for Python 3](https://pip.pypa.io/en/stable/installation/) (In some cases it may not come with Python out of the box).  
 
-  * **Note:** The versions of hat are currently fully functional in the installation process are pip 20.2.3 & pip 20.3.4.
+    * **Note:** The versions of hat are currently fully functional in the installation process are pip 20.2.3 & pip 20.3.4.
     
-  * Debian based: `sudo apt install python3-pip`
+    * Debian based: `sudo apt install python3-pip`
 
 4. ZeroMQ library - used for the communication between the Bitscreen Plugin and the Bitscreen Updater
 
-  * Debian based: `sudo apt install libzmq3-dev`
+    * Debian based: `sudo apt install libzmq3-dev`
 
 
-## 2. Installing BitScreen-CLI
+## Installing BitScreen-CLI
 
 When installing the BitScreen-CLI please make sure you do not use Python 3.6 while using pip (version 3.6 comes pre-installed on different operating systems), because the installation might not succeed. Please make sure you are using a version equal or higher to 3.7. Usually stating the exact version of Python3 should work when using the pip module:
 
@@ -39,7 +39,7 @@ This should install the latest version of the BitScreen-CLI which at the moment 
   * **Note:** If the "bitscreen-cli" command is not found, you may be missing the python binary path from your `$PATH`. You can add it using: `export PATH=$PATH:/home/$USER/.local/bin`
 
 
-## 3. Registration Process: BitScreen-CLI / BitScreen GUI Client
+## Registration Process: BitScreen-CLI / BitScreen GUI Client
 
 To obtain a BitScreen account you can use two options:
 
@@ -48,7 +48,7 @@ A) Directly through the BitScreen-CLI, using the command `bitscreen-cli auth reg
 B) Through the BitScreen GUI Client which can be found at: https://app.bitscreen.co. You will need a browser that has the MetaMask extension installed in order to do so, along with an Ethereum wallet address. If you have multiple addresses associated with the same wallet, please make sure you take notice of which one is used to register as it will matter in the following step.
 
 
-## 4. Authenticating BitScreen-CLI
+## Authenticating BitScreen-CLI
 
 A) Obtain the information of the account created at step 3.
 
@@ -79,7 +79,7 @@ OR
 In both cases, after being successfully authenticated you can optionally save the credentials for future logins.
 
 
-## 5. Run BitScreen-CLI Setup Installation
+## Run BitScreen-CLI Setup Installation
 
 Before running the below command make sure the environment variable LOTUS_MINER_PATH is set. This variable should have been set during the Lotus Node & Miner installation process.
 
@@ -92,7 +92,7 @@ When this prompt appears during the setup process: Would you like to authenticat
 To confirm that the setup was done properly please check that the Lotus Miner was configured properly to use the BitScreen Suite. In order to do so you must check that the variables 'Filter' and 'RetrievalFilter' (which should be found in ~/.lotusminer/config.toml if not previously configured otherwise) point towards the BitScreen go plugin. Debian based should be: /home/USERNAME/go/bin/bitscreen.
 
 
-## 6. Run the BitScreen Updater
+## Run the BitScreen Updater
 
 * Command: `bitscreen-updater start`
 
