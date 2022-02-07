@@ -89,7 +89,7 @@ Before running the below command make sure the environment variable `LOTUS_MINER
 This process will install and configure two of the main components of the filtering process: the BitScreen Updater and the BitScreen Plugin. 
 
   * The BitScreen Updater tool is used to fetch and store the lists of filters you want to use from the server, and to provide them to the BitScreen Plugin, which in turn communicates with the Lotus Node.
-  * **Note:** When this prompt appears during the setup process: `Would you like to authenticate the BitScreen Updater with your CLI credentials?` You can optionally use the BitScreen-CLI login credentials for the Updater as well. We recommend doing so!
+  * **Note:** During setup, you will have the option to use the BitScreen-CLI login credentials for the Updater as well. We recommend doing so!
 
 To confirm that the BitScreen setup was done properly in Lotus, please check the following: 
 
@@ -103,15 +103,18 @@ To confirm that the BitScreen setup was done properly in Lotus, please check the
 
   * Check if the tool was properly started by using the command: `bitscreen-updater status`
 
-  * The logs which will show the BitScreen Updater's activity should be found at the following path: /tmp/bitscreen_updater.log
+  * The logs which will show the BitScreen Updater's activity should be found at the following path: `/tmp/bitscreen_updater.log`
 
 
 ## 7. Filtering Retrieval and Storage Deals
 
-Create Filter Lists which your miner will use to block storage or retrieve deals from happening.
+You can now create filter lists which your Lotus node will use to block storage or retrieve deals from happening for affected CIDs.
 
-This can be done directly in the CLI. More information here:
-- https://github.com/Murmuration-Labs/bitscreen-cli#bitscreen-cli-filter or
-- using the command: bitscreen-cli --help
+This can be done directly in the CLI:
+  * More information: https://github.com/Murmuration-Labs/bitscreen-cli#bitscreen-cli-filter
+  * Command: `bitscreen-cli --help`
 
-Filter Lists can also be created and managed through the GUI Web Interface (https://bxn.mml-client.keyko.rocks/). The Settings page has a quick start guide which you can check out to help you get started).
+Filter Lists can also be created and managed through the GUI web client (https://app.bitscreen.co). 
+
+  * More information: https://github.com/Murmuration-Labs/bitscreen/blob/master/README.md 
+  * The Settings page on the GUI client has a quick start guide to help you get started.
