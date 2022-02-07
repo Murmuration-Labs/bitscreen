@@ -7,17 +7,19 @@ By following the steps provided in this guide it means you are already an 'up-an
 
 ## 1. BitScreen Prerequisites:
 
-a) GO version 1.17.1. Can be found here: https://go.dev/dl/#go1.17.1
+a) [GO version 1.17.1](https://go.dev/dl/#go1.17.1)
     
   * Debian based: `sudo apt update && sudo apt upgrade && sudo apt install golang-go`
  
-b) Python 3.9. Can be found here: https://www.python.org/downloads/release/python-390/
+b) [Python 3.9](https://www.python.org/downloads/release/python-390/)
     
   * Debian based: `sudo apt update && sudo apt install software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.9`
  
   * *Note:* Any Python 3 version 3.7+ will work.
  
-c) pip for Python 3 (in some cases it does not come with Python out of the box). Can be found here: https://pip.pypa.io/en/stable/installation/ (the versions of that 100% working in the installation process are pip 20.2.3 & pip 20.3.4).
+c) [pip for Python 3](https://pip.pypa.io/en/stable/installation/) (In some cases it may not come with Python out of the box).  
+
+  * *Note:* The versions of hat are currently fully functional in the installation process are pip 20.2.3 & pip 20.3.4.
     
   * Debian based: `sudo apt install python3-pip`
 
@@ -30,11 +32,11 @@ d) ZeroMQ library - used for the communication between the Bitscreen Plugin and 
 
 When installing the BitScreen-CLI please make sure you do not use Python 3.6 when using pip (the 3.6 version comes pre-installed on different operating systems) because the installation might not succeed. Make sure you are using a version higher or equal to 3.7. Usually stating the exact version of Python3 should work when using the pip module:
 
-python3.9 -m pip install bitscreen-cli --upgrade
+  * python3.9 `-m pip install bitscreen-cli --upgrade`
 
 This should install the latest version of the BitScreen-CLI which at the moment of writting this guide is 0.1.16.
 
-NOTE: If the "bitscreen-cli" command is not found, you may be missing the python binary path from your $PATH . You can add it like this: export PATH=$PATH:/home/$USER/.local/bin
+  * *Note:* If the "bitscreen-cli" command is not found, you may be missing the python binary path from your $PATH . You can add it using: `export PATH=$PATH:/home/$USER/.local/bin`
 
 
 ## 3. Registration Process - BitScreen-CLI / BitScreen GUI Client
