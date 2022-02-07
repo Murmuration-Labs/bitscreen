@@ -2,7 +2,7 @@
 
 This guide presents the steps a Filecoin storage provider must take to install and use the BitScreen tool. Through it the storage provider can prevent certain files (decided by the storage provider) from being stored and/or retrieved.
 
-By following the steps provided in this guide it means you are already an 'up-and-running' Filecoin storage provider, therefore you already have an active and working Filecoin Lotus Node & Miner. If this is not the case, you can follow the steps provided by Protocol Labs here: https://lotus.filecoin.io/docs/set-up/install .
+By following the steps provided in this guide it means you are already an 'up-and-running' Filecoin storage provider, therefore you already have an active and working Filecoin Lotus Node & Miner. If this is not the case, you can follow the [steps provided by Protocol Labs here](https://lotus.filecoin.io/docs/set-up/install).
 
 
 ## 1. BitScreen Prerequisites:
