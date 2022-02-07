@@ -38,7 +38,7 @@ In this way, BitScreen acts as an external program which provides input to the D
 
   * [BitScreen installation guide](https://github.com/Murmuration-Labs/bitscreen/blob/master/bitscreen_installation_guide.md)
   * [BitScreen CLI guide](https://github.com/Murmuration-Labs/bitscreen-cli/blob/main/README.md)
-  * BitScreen GUI guide (below)
+  * [BitScreen GUI guide](https://github.com/Murmuration-Labs/bitscreen/blob/master/README.md#bitscreen-gui-user-guide) (below)
 
 ---
 
