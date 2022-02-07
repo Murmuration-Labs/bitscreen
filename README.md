@@ -49,7 +49,6 @@ In this way, BitScreen acts as an external program which provides input to the D
 To get started, first install the command line interface (CLI) from the terminal, by following the instructions in our installation guide:  
 
   * [https://github.com/Murmuration-Labs/bitscreen/blob/master/bitscreen\_installation\_guide.md](https://github.com/Murmuration-Labs/bitscreen/blob/master/bitscreen_installation_guide.md)  
-  * The script will walk you through available options, and will download the required components based on your selections.   
 
 Lotus Miner must be restarted once the BitScreen Plugin and other components are installed.
 
