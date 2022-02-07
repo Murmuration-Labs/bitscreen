@@ -17,13 +17,13 @@ B)  [Python 3.9](https://www.python.org/downloads/release/python-390/)
  
   * **Note:** Any Python 3 version 3.7+ will work.
  
-c) [pip for Python 3](https://pip.pypa.io/en/stable/installation/) (In some cases it may not come with Python out of the box).  
+C) [pip for Python 3](https://pip.pypa.io/en/stable/installation/) (In some cases it may not come with Python out of the box).  
 
   * **Note:** The versions of hat are currently fully functional in the installation process are pip 20.2.3 & pip 20.3.4.
     
   * Debian based: `sudo apt install python3-pip`
 
-d) ZeroMQ library - used for the communication between the Bitscreen Plugin and the Bitscreen Updater
+D) ZeroMQ library - used for the communication between the Bitscreen Plugin and the Bitscreen Updater
 
   * Debian based: `sudo apt install libzmq3-dev`
 
@@ -43,23 +43,25 @@ This should install the latest version of the BitScreen-CLI which at the moment 
 
 To obtain a BitScreen account you can use two options:
 
-a) Directly through the BitScreen-CLI, using the command `bitscreen-cli auth register WALLET-ADDRESS` (replace WALLET-ADDRESS with the appropriate value for the Ethereum wallet address you want to use to log into and manage BitScreen)
+A) Directly through the BitScreen-CLI, using the command `bitscreen-cli auth register WALLET-ADDRESS` (replace WALLET-ADDRESS with the appropriate value for the Ethereum wallet address you want to use to log into and manage BitScreen)
 
-b) Through the BitScreen GUI Client which can be found at: https://app.bitscreen.co. You will need a browser that has the MetaMask extension installed in order to do so, along with an Ethereum wallet address. If you have multiple addresses associated with the same wallet, please make sure you take notice of which one is used to register as it will matter in the following step.
+B) Through the BitScreen GUI Client which can be found at: https://app.bitscreen.co. You will need a browser that has the MetaMask extension installed in order to do so, along with an Ethereum wallet address. If you have multiple addresses associated with the same wallet, please make sure you take notice of which one is used to register as it will matter in the following step.
 
 
 ## 4. Authenticating BitScreen-CLI
 
-a) Obtain the information of the account created at step 3
+A) Obtain the information of the account created at step 3.
 
-This can be done through the usage of either a Private Key of the account or using the Recovery Phrase in case the account is associated directly to the master key. NOTE! If the MetaMask account used to register on BitScreen is a child key derived from the master key associated with the Recovery Phrase (Seed Phrase) then the Private Key of the said account must be used. In this case using the Recovery Phrase will not work.
+  * This can be done through the usage of either a Private Key of the account or using the Recovery Phrase in case the account is associated directly to the master key. 
 
-Use the links bellow to learn how to obtain either of these:
+  * **Note:** If the MetaMask account used to register on BitScreen is a child key derived from the master key associated with the recovery phrase (seed phrase) then the Private Key of the said account must be used. In this case using the Recovery Phrase will not work.
 
-- [Account Private Key from Metamask](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key) 
-- [Account Recovery Phrase from Metamask](https://metamask.zendesk.com/hc/en-us/articles/360015290032-How-to-reveal-your-Secret-Recovery-Phrase)
+  * Use the links bellow to learn how to obtain either of these:
 
-b) Authenticate in the BitScreen-CLI
+    - [Account Private Key from Metamask](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key) 
+    - [Account Recovery Phrase from Metamask](https://metamask.zendesk.com/hc/en-us/articles/360015290032-How-to-reveal-your-Secret-Recovery-Phrase)
+
+B) Authenticate in the BitScreen-CLI
 
 With Private Key:
 
