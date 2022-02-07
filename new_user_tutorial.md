@@ -69,8 +69,6 @@ To obtain a BitScreen account you can use two options:
       2. A prompt will appear which will ask for the wallet address associated with the account
       3. A prompt will appear which will ask for the account Private Key
 
-OR
-
     * With Recovery Phrase (Seed Phrase):
 
       1. `bitscreen-cli auth login --fromseed`
