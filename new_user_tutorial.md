@@ -5,7 +5,7 @@ This guide presents the steps a Filecoin storage provider must take to install a
 By following the steps provided in this guide it means you are already an 'up-and-running' Filecoin storage provider, therefore you already have an active and working Filecoin Lotus Node & Miner. If this is not the case, you can follow the steps provided by Protocol Labs here: https://lotus.filecoin.io/docs/set-up/install .
 
 
-## BitScreen Prerequisites:
+## 1) BitScreen Prerequisites:
 
 1. GO version 1.17.1. Can be found here: https://go.dev/dl/#go1.17.1
     
@@ -15,7 +15,7 @@ By following the steps provided in this guide it means you are already an 'up-an
     
     - Debian based: sudo apt update && sudo apt install software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.9
  
- NOTE! Any Python3 version 3.7+ will work.
+    - *Note:* Any Python 3 version 3.7+ will work.
  
 3. pip for Python 3 (in some cases it does not come with Python out of the box). Can be found here: https://pip.pypa.io/en/stable/installation/ (the versions of that 100% working in the installation process are pip 20.2.3 & pip 20.3.4).
     
@@ -26,7 +26,7 @@ By following the steps provided in this guide it means you are already an 'up-an
     - Debian based: sudo apt install libzmq3-dev
 
 
-2. Installing - BitScreen-CLI
+## 2) Installing - BitScreen-CLI
 
 When installing the BitScreen-CLI please make sure you do not use Python 3.6 when using pip (the 3.6 version comes pre-installed on different operating systems) because the installation might not succeed. Make sure you are using a version higher or equal to 3.7. Usually stating the exact version of Python3 should work when using the pip module:
 
@@ -37,14 +37,14 @@ This should install the latest version of the BitScreen-CLI which at the moment 
 NOTE: If the "bitscreen-cli" command is not found, you may be missing the python binary path from your $PATH . You can add it like this: export PATH=$PATH:/home/$USER/.local/bin
 
 
-3. Registration Process - BitScreen-CLI / BitScreen GUI Client
+## 3) Registration Process - BitScreen-CLI / BitScreen GUI Client
 
 To obtain a BitScreen account you can use two options:
 a) Directly through the BitScreen-CLI, using the command bitscreen-cli auth register WALLET-ADDRESS (replace WALLET-ADDRESS with the appropriate value for the wallet account you want to use on BitScreen)
 b) Through the BitScreen GUI Client which can be found at: https://bxn.mml-client.keyko.rocks/. You will need a browser that has the MetaMask extension installed in order to do so. If you have multiple accounts associated with the same wallet, please make sure you take notice of which one is used to register as it will matter in the following step.
 
 
-4. Authentication Process - BitScreen-CLI
+## 4) Authentication Process - BitScreen-CLI
 
 a) Obtain the information of the account created at step 3
 This can be done through the usage of either a Private Key of the account or using the Recovery Phrase in case the account is associated directly to the master key. NOTE! If the MetaMask account used to register on BitScreen is a child key derived from the master key associated with the Recovery Phrase (Seed Phrase) then the Private Key of the said account must be used. In this case using the Recovery Phrase will not work.
@@ -67,7 +67,7 @@ ii. A prompt will appear which will ask for the account Recovery Phrase (Seed Ph
 In both cases, after being successfully authenticated you will be able to opt for saving the credentials for future logins.
 
 
-5. Run BitScreen-CLI setup installation
+## 5) Run BitScreen-CLI setup installation
 
 Before running the below command make sure the environment variable LOTUS_MINER_PATH is set. This variable should have been set during the Lotus Node & Miner installation process.
 Command: bitscreen-cli setup install
@@ -79,7 +79,7 @@ When this prompt appears during the setup process: Would you like to authenticat
 To confirm that the setup was done properly please check that the Lotus Miner was configured properly to use the BitScreen Suite. In order to do so you must check that the variables 'Filter' and 'RetrievalFilter' (which should be found in ~/.lotusminer/config.toml if not previously configured otherwise) point towards the BitScreen go plugin. Debian based should be: /home/USERNAME/go/bin/bitscreen.
 
 
-6. Run the BitScreen Updater
+## 6) Run the BitScreen Updater
 
 Command: bitscreen-updater start
 
