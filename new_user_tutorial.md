@@ -1,13 +1,13 @@
 # Bitscreen Installation & Usage Tutorial
 
-This guide presents the steps a Filecoin storage provider must take to install and use the BitScreen tool. Through it the storage provider can prevent certain files (decided by the storage provider) from being stored and/or retrieved.
+This guide presents the steps a Filecoin storage provider must take to install and use the BitScreen tools. Using Bitscreen, the storage provider can prevent certain files (decided by the storage provider) from being stored and/or retrieved.
 
-By following the steps provided in this guide it means you are already an 'up-and-running' Filecoin storage provider, therefore you already have an active and working Filecoin Lotus Node & Miner. If this is not the case, you can follow the [steps provided by Protocol Labs here](https://lotus.filecoin.io/docs/set-up/install).
+This guide assumes that you are already up and running as a Filecoin storage provider, and already have an active and working Filecoin Lotus node. If this is not the case, please refer to the [steps provided by Protocol Labs here](https://lotus.filecoin.io/docs/set-up/install).
 
 
 ## 1. BitScreen Prerequisites
 
-a) [GO version 1.17.1](https://go.dev/dl/#go1.17.1) *(Check links to download)*
+a) [GO version 1.17.1](https://go.dev/dl/#go1.17.1)
     
   * Debian based: `sudo apt update && sudo apt upgrade && sudo apt install golang-go`
  
@@ -28,18 +28,19 @@ d) ZeroMQ library - used for the communication between the Bitscreen Plugin and 
   * Debian based: `sudo apt install libzmq3-dev`
 
 
-## 2. Installing - BitScreen-CLI
+## 2. Installing BitScreen-CLI
 
-When installing the BitScreen-CLI please make sure you do not use Python 3.6 when using pip (the 3.6 version comes pre-installed on different operating systems) because the installation might not succeed. Make sure you are using a version higher or equal to 3.7. Usually stating the exact version of Python3 should work when using the pip module:
+When installing the BitScreen-CLI please make sure you do not use Python 3.6 while using pip (version 3.6 comes pre-installed on different operating systems), because the installation might not succeed. Please make sure you are using a version equal or higher to 3.7. Usually stating the exact version of Python3 should work when using the pip module:
 
-  * python3.9 `-m pip install bitscreen-cli --upgrade`
+  * `python3.9 -m pip install bitscreen-cli --upgrade`
 
-This should install the latest version of the BitScreen-CLI which at the moment of writting this guide is 0.1.16.
+This should install the latest version of the BitScreen-CLI which at the moment of writting this guide is v. 0.1.16.
 
-  * **Note:** If the "bitscreen-cli" command is not found, you may be missing the python binary path from your $PATH . You can add it using: `export PATH=$PATH:/home/$USER/.local/bin`
+  * **Note:** If the "bitscreen-cli" command is not found, you may be missing the python binary path from your $PATH . 
+    *You can add it using: `export PATH=$PATH:/home/$USER/.local/bin`
 
 
-## 3. Registration Process - BitScreen-CLI / BitScreen GUI Client
+## 3. Registration Process: BitScreen-CLI / BitScreen GUI Client
 
 To obtain a BitScreen account you can use two options:
 
@@ -48,7 +49,7 @@ a) Directly through the BitScreen-CLI, using the command bitscreen-cli auth regi
 b) Through the BitScreen GUI Client which can be found at: https://bxn.mml-client.keyko.rocks/. You will need a browser that has the MetaMask extension installed in order to do so. If you have multiple accounts associated with the same wallet, please make sure you take notice of which one is used to register as it will matter in the following step.
 
 
-## 4. Authentication Process - BitScreen-CLI
+## 4. Authenticating BitScreen-CLI
 
 a) Obtain the information of the account created at step 3
 This can be done through the usage of either a Private Key of the account or using the Recovery Phrase in case the account is associated directly to the master key. NOTE! If the MetaMask account used to register on BitScreen is a child key derived from the master key associated with the Recovery Phrase (Seed Phrase) then the Private Key of the said account must be used. In this case using the Recovery Phrase will not work.
@@ -72,7 +73,7 @@ ii. A prompt will appear which will ask for the account Recovery Phrase (Seed Ph
 In both cases, after being successfully authenticated you will be able to opt for saving the credentials for future logins.
 
 
-## 5. Run BitScreen-CLI setup installation
+## 5. Run BitScreen-CLI Setup Installation
 
 Before running the below command make sure the environment variable LOTUS_MINER_PATH is set. This variable should have been set during the Lotus Node & Miner installation process.
 Command: bitscreen-cli setup install
@@ -93,7 +94,7 @@ Check if the tool was properly started by using the command: bitscreen-updater s
 The logs which will show the BitScreen Updater's activity should be found at the following path: /tmp/bitscreen_updater.log
 
 
-7. Filtering Retrieval and Storage Deals
+## 7. Filtering Retrieval and Storage Deals
 
 Create Filter Lists which your miner will use to block storage or retrieve deals from happening.
 
