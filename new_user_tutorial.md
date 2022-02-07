@@ -9,21 +9,21 @@ By following the steps provided in this guide it means you are already an 'up-an
 
 a) GO version 1.17.1. Can be found here: https://go.dev/dl/#go1.17.1
     
-  * Debian based: sudo apt update && sudo apt upgrade && sudo apt install golang-go
+  * Debian based: `sudo apt update && sudo apt upgrade && sudo apt install golang-go`
  
 b) Python 3.9. Can be found here: https://www.python.org/downloads/release/python-390/
     
-Debian based: sudo apt update && sudo apt install software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.9
+  * Debian based: `sudo apt update && sudo apt install software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.9`
  
-*Note:* Any Python 3 version 3.7+ will work.
+  * *Note:* Any Python 3 version 3.7+ will work.
  
 c) pip for Python 3 (in some cases it does not come with Python out of the box). Can be found here: https://pip.pypa.io/en/stable/installation/ (the versions of that 100% working in the installation process are pip 20.2.3 & pip 20.3.4).
     
-Debian based: sudo apt install python3-pip
+  * Debian based: `sudo apt install python3-pip`
 
 d) ZeroMQ library - used for the communication between the Bitscreen Plugin and the Bitscreen Updater
 
-Debian based: sudo apt install libzmq3-dev
+  * Debian based: `sudo apt install libzmq3-dev`
 
 
 ## 2. Installing - BitScreen-CLI
