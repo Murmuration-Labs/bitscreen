@@ -77,7 +77,7 @@ To use BitScreen, run the configuration script and install the required componen
 
 The cloud-based BitScreen List Manager (both the GUI and CLI) uses Metamask as a login provider. Your Ethereum wallet address is stored hashed as a unique identifier within our system to control access, and to determine statistical usage information. The instructions below will walk you through set-up of the GUI. Instructions for [set-up and use of the CLI](https://pypi.org/project/bitscreen-cli/) are here.  If you are only using the Local CID List without the List Manager or List Updater, you can skip these steps.   
 
-1. To begin, navigate to app.bitscreen.co and activate the filtering toggle to turn on BitScreen. 
+1. To begin, navigate to [app.bitscreen.co](https://app.bitscreen.co/) and activate the filtering toggle to turn on BitScreen. 
 2. Click Connect with Metamask. You will be asked to sign a message in [Metamask](https://metamask.io/) to verify the wallet. You will not be charged for this or any wallet interaction in BitScreen. It is only used for authenticating you as a user.
 3. Once you've connected Metamask, your wallet address will appear on [app.bitscreen.co/settings](https://app.bitscreen.co/settings) and in the navigation bar. You can log out by disconnecting your wallet at any time. 
 4. Next, run the configuration script described in the Installation section of this user guide, if you have not already done so. 
