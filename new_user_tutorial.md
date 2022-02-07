@@ -80,7 +80,7 @@ To obtain a BitScreen account you can use either of the two following options:
 In both cases, after being successfully authenticated you can optionally save the credentials for future logins.
 
 
-## Run BitScreen-CLI Setup Installation
+## Run BitScreen-CLI Setup Install
 
 Before running the below command make sure the environment variable `LOTUS_MINER_PATH` is set. This variable should have been set during the Lotus Node & Miner installation process.
 
@@ -106,7 +106,7 @@ To confirm that the BitScreen setup was done properly in Lotus, please check the
   * The logs which will show the BitScreen Updater's activity should be found at the following path: `/tmp/bitscreen_updater.log`
 
 
-## 7. Filtering Retrieval and Storage Deals
+## Filtering Retrieval and Storage Deals
 
 You can now create filter lists which your Lotus node will use to block storage or retrieve deals from happening for affected CIDs.
 
