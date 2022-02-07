@@ -24,6 +24,8 @@ BitScreen is composed of several components that storage providers can use in th
 
 If a storage provider receives an apparently valid complaint or legal request to remove, disable, or block a piece of content stored on their system and associated with a CID (or for some other reason chooses to make a particular file unavailable for retrieval), the storage provider may choose to add the CID to a filter list using the cloud-based List Manager, or to the Local CID List. The BitScreen Plugin then works by comparing a given Payload ContentID (CID) against the active list of known CIDs. Payload CIDs found in a BitScreen filter list will activate the Filecoin DealMaking filter and will be filtered out from deals. 
 
+*See also*: [Filecoin Lotus Miner Filter](https://lotus.filecoin.io/docs/storage-providers/config/#dealmaking-section)
+
 On the back end, the cloud-based List Manager communicates with the BitScreen Lotus Plugin via the List Updater to efficiently keep current filter lists up to date. With the List Manager, users of BitScreen can keep their filter lists private, share them directly with another user, or add them to a public directory where they may be imported by any user. Alternatively, storage providers can make manual entries of known CIDs in their Local CID List, without the need to run the List Manager or List Updater.
 
 In this way, BitScreen acts as an external program which provides input to the DealMaking filter function in Filecoin’s Lotus Miner. As a result, clients seeking to store a file with a filtered CID will not be able to form a storage deal with the storage providers. Similarly, clients seeking to retrieve a file already stored by the storage providers, and that has a filtered CID, will not be able to retrieve the file.
