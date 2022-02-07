@@ -1,6 +1,6 @@
 # BitScreen Overview
 
-  * [BitScreen Installation & Usage](https://github.com/Murmuration-Labs/bitscreen/blob/master/README.md#bitscreen-installation--usage)
+  * Quick start:[BitScreen Installation & Usage](https://github.com/Murmuration-Labs/bitscreen/blob/master/README.md#bitscreen-installation--usage)
 
 ## What is BitScreen?
 
