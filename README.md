@@ -46,11 +46,10 @@ In this way, BitScreen acts as an external program which provides input to the D
 
 ### Installation  
 
-It is recommended that new users of BitScreen run the Configuration Script to customize the application, and install all required components. The script will walk you through available options, and will download the required components based on your selections.   
-
 To get started, first install the command line interface (CLI) from the terminal, by following the instructions in our installation guide:  
 
-[https://github.com/Murmuration-Labs/bitscreen/blob/master/bitscreen\_installation\_guide.md](https://github.com/Murmuration-Labs/bitscreen/blob/master/bitscreen_installation_guide.md)  
+  * [https://github.com/Murmuration-Labs/bitscreen/blob/master/bitscreen\_installation\_guide.md](https://github.com/Murmuration-Labs/bitscreen/blob/master/bitscreen_installation_guide.md)  
+  * The script will walk you through available options, and will download the required components based on your selections.   
 
 Lotus Miner must be restarted once the BitScreen Plugin and other components are installed.
 
@@ -58,20 +57,20 @@ Lotus Miner must be restarted once the BitScreen Plugin and other components are
 
 BitScreen has the following components, which operators can use in the combination they prefer:  
 
-1. Lotus Plugin (required): Prevents deals in Lotus for CIDs contained in Local CID List or List Manager.
-2. Local CID Lis[t](https://docs.google.com/document/d/1MJTso0bgfKIl4SyyZj_2AJ_UOFYDqsrki_lXKV7kUNI/edit#): Flat file containing CIDs to be filtered. Can be edited manually. Acts as fallback if List Updater not in use. 
-3. List Updater: Daemon that periodically checks List Manager for presence of CIDs requested by Lotus Plugin. If installed, overrides Local CID List.
-4. List Manager (optional): Advanced cloud-based utility to create, share & import filter lists
-  * [GUI client](http://app.bitscreen.co/)
-  * [CLI](https://pypi.org/project/bitscreen-cli/)
+1. **Lotus Plugin (required):** Prevents deals in Lotus for CIDs contained in Local CID List or List Manager.
+2. **Local CID List:** Flat file containing CIDs to be filtered. Can be edited manually. Acts as fallback if List Updater not in use. 
+3. **List Updater:** Daemon that periodically checks List Manager for presence of CIDs requested by Lotus Plugin. If installed, overrides Local CID List.
+4. **List Manager (optional):** Advanced cloud-based utility to create, share & import filter lists
+    * [GUI client](http://app.bitscreen.co/)
+    * [CLI](https://pypi.org/project/bitscreen-cli/)
 
 ### Modes of use:  
 
 To use BitScreen, run the configuration script and install the required components.   
 
-* Basic: If you're using the Plugin with the Local CID list only, you can simply edit the CIDs contained on the list manually. You won't be able to share or import lists from other users.   
+* **Basic:** If you're using the Plugin with the Local CID list only, you can simply edit the CIDs contained on the list manually. You won't be able to share or import lists from other users.   
 
-* Advanced: If you're using the Plugin with the List Updater daemon, you will also need to run the List Manager, either from the command line, or using the GUI client.
+* **Advanced:** If you're using the Plugin with the List Updater daemon, you will also need to run the List Manager, either from the command line, or using the GUI client.
 
 ### Connecting a wallet  
 
@@ -100,9 +99,9 @@ If you wish to cease using the BitScreen List Manager, you may do so at any time
 
 1. From the settings page, you can delete the BitScreen account linked to your wallet, or export your filter lists. 
 2. Exports consist of the following:
-  1. Any list provider data you entered
-  2. In cases where you are the owner/author of a filter list, the full list of CIDs included in each list
-  3. In cases where you are importing a list owner by another user, the name(s) of any imported list(s) and their URL.   
+    1. Any list provider data you entered
+    2. In cases where you are the owner/author of a filter list, the full list of CIDs included in each list
+    3. In cases where you are importing a list owner by another user, the name(s) of any imported list(s) and their URL.   
 
 The above only applies to the cloud-based List Manager, and does not apply to the Local CID List. If you wish to cease using the local list, simply delete or erase the contents of that local file. 
 
@@ -114,13 +113,13 @@ Once you have activated the cloud-based List Manager, you will be able to view r
 2. Number of subscribers to your shared or public lists
 3. Total number of storage and retrieval deals (combined) which have been declined due to filtering of CIDs on your lists
 4. Number of:
-  1. Active and inactive lists (you can deactivate lists temporarily to stop them from filtering)
-  2. Imported lists created by other users
-  3. Private lists accessible only to you
-  4. Public lists accessible via the Directory to all users
+    1. Active and inactive lists (you can deactivate lists temporarily to stop them from filtering)
+    2. Imported lists created by other users
+    3. Private lists accessible only to you
+    4. Public lists accessible via the Directory to all users
 5. A chart with customizable timeframes comparing:
-  1. Total of CIDs currently being filtered
-  2. Total number of requests blocked involving those CIDs  
+    1. Total of CIDs currently being filtered
+    2. Total number of requests blocked involving those CIDs  
 
 ### Creating new filter lists  
 
@@ -142,12 +141,12 @@ There are four types of filter lists in the BitScreen List Manager: private, sha
 
 1. Private: Private lists are only visible to you.
 2. Shared: Shared lists are only visible to other users if they have the URL.
-  1. To share a list, first save it, and then click Copy link to get the shareable list URL
+    1. To share a list, first save it, and then click Copy link to get the shareable list URL
 3. Public: Public lists are visible to all users via the directory, along with the list provider information you entered in settings. 
-  1. To share a public list, first save it, and then click Copy link to get the shareable URL. 
+    1. To share a public list, first save it, and then click Copy link to get the shareable URL. 
 4. Exception: Exception lists prevent CIDs from imported lists from being filtered. They cannot be shared.
-  1. Exception lists are used to override filtering of a given CID(s) which are being blocked by an imported filter list. Rather than disable or discard an imported list entirely, creating an exception list lets you keep using the list, while excluding desired CIDs from filtering. 
-  2. Note: Exception lists are intended to be used to override filtering of CIDs from imported lists only. If you enter a CID into an exception list that you are filtering yourself on a list you own, you will be asked to resolve the conflict.
+    1. Exception lists are used to override filtering of a given CID(s) which are being blocked by an imported filter list. Rather than disable or discard an imported list entirely, creating an exception list lets you keep using the list, while excluding desired CIDs from filtering. 
+    2. Note: Exception lists are intended to be used to override filtering of CIDs from imported lists only. If you enter a CID into an exception list that you are filtering yourself on a list you own, you will be asked to resolve the conflict.
 
 ### Importing filter lists  
 
