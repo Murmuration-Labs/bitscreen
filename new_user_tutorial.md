@@ -63,20 +63,20 @@ A) Obtain the information of the account created at step 3.
 
 B) Authenticate in the BitScreen-CLI
 
-With Private Key:
+  * With Private Key:
 
-i. `bitscreen-cli auth login`
-ii. A prompt will appear which will ask for the wallet address associated with the account
-iii. A prompt will appear which will ask for the account Private Key
+    1. `bitscreen-cli auth login`
+    2. A prompt will appear which will ask for the wallet address associated with the account
+    3. A prompt will appear which will ask for the account Private Key
 
 OR
 
-With Recovery Phrase (Seed Phrase):
+  * With Recovery Phrase (Seed Phrase):
 
-i. `bitscreen-cli auth login --fromseed`
-ii. A prompt will appear which will ask for the account Recovery Phrase (Seed Phrase)
+    1. `bitscreen-cli auth login --fromseed`
+    2. A prompt will appear which will ask for the account Recovery Phrase (Seed Phrase)
 
-In both cases, after being successfully authenticated you will be able to opt for saving the credentials for future logins.
+In both cases, after being successfully authenticated you can optionally save the credentials for future logins.
 
 
 ## 5. Run BitScreen-CLI Setup Installation
