@@ -61,20 +61,20 @@ To obtain a BitScreen account you can use two options:
       - [Account Private Key from Metamask](https://metamask.zendesk.com/hc/en-us/articles/360015289632-How-to-Export-an-Account-Private-Key) 
       - [Account Recovery Phrase from Metamask](https://metamask.zendesk.com/hc/en-us/articles/360015290032-How-to-reveal-your-Secret-Recovery-Phrase)
 
-B) Authenticate in the BitScreen-CLI
+2. Authenticate in the BitScreen-CLI
 
-  * With Private Key:
+    * With Private Key:
 
-    1. `bitscreen-cli auth login`
-    2. A prompt will appear which will ask for the wallet address associated with the account
-    3. A prompt will appear which will ask for the account Private Key
+      1. `bitscreen-cli auth login`
+      2. A prompt will appear which will ask for the wallet address associated with the account
+      3. A prompt will appear which will ask for the account Private Key
 
 OR
 
-  * With Recovery Phrase (Seed Phrase):
+    * With Recovery Phrase (Seed Phrase):
 
-    1. `bitscreen-cli auth login --fromseed`
-    2. A prompt will appear which will ask for the account Recovery Phrase (Seed Phrase)
+      1. `bitscreen-cli auth login --fromseed`
+      2. A prompt will appear which will ask for the account Recovery Phrase (Seed Phrase)
 
 In both cases, after being successfully authenticated you can optionally save the credentials for future logins.
 
