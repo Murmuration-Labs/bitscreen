@@ -50,6 +50,8 @@ In this way, BitScreen acts as an external program which provides input to the D
 
 ## BitScreen GUI User Guide
 
+  * Click here for [BitScreen CLI guide](https://github.com/Murmuration-Labs/bitscreen-cli/blob/main/README.md)
+
 ### Installation  
 
 To get started, first install the command line interface (CLI) from the terminal, by following the instructions in our installation guide:  
