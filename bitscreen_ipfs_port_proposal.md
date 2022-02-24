@@ -24,4 +24,6 @@ Lastly, Murmuration Labs would also like to eventually enable web visitors to ga
 
 ## Request for feedback
 
-Murmuration Labs is in the early stages of evaluating how best to proceed with porting BitScreen to work on both Filecoin & IPFS. We are requesting both general feedback on the above, as well as feedback specifically about proper pathways to develop the plugin for go-IPFS. Our technical team will be able to answer questions that might come up around this. Thanks in advance!
+Murmuration Labs is in the early stages of evaluating how best to proceed with porting BitScreen to work on both Filecoin & IPFS. We are requesting both general feedback on the above, as well as feedback specifically about proper pathways to develop the plugin for go-IPFS. Our technical team will be able to answer questions that might come up around this. 
+
+Thanks in advance!
