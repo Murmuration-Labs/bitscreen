@@ -18,10 +18,8 @@ func getDealInfo() (cid.Cid, error) {
 	}
 
 	for _, path := range [][]string{
-		[]string{"Proposal", "PieceCID", "/"},
-		[]string{"Proposal", "Label"},
-		[]string{"Ref", "Root", "/"},
-		[]string{"PayloadCID", "/"},
+		[]string{"Ref", "Root", "/"}, // storage deal
+		[]string{"PayloadCID", "/"}, // retrieval deal
 	} {
 		c, err := cid.Parse(proposal.Search(path...).Data())
 		// check only if found a valid CID
