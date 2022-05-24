@@ -11,8 +11,15 @@ import (
 
 func getDealInfo() (cid.Cid, error) {
 	var c cid.Cid
+	f, err := os.OpenFile("/tmp/bitscreen_go.log", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0666)
+	if err != nil {
+        log.Fatalf("error opening file: %v", err)
+    }
+    defer f.Close()
+    log.SetOutput(f);
 
 	proposal, err := gabs.ParseJSONBuffer(os.Stdin)
+    log.Println(proposal.String())
 	if err != nil {
 		log.Fatalf("Unable to parse proposal JSON: %s", err)
 	}
