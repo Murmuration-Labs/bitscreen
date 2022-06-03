@@ -11,11 +11,12 @@ import (
 	"github.com/filecoin-project/go-fil-markets/storagemarket"
 	"github.com/ipfs/go-cid"
 	"gotest.tools/assert"
+	"github.com/Jeffail/gabs"
 )
 
 func ScreenDealProposal(deal storagemarket.MinerDeal) bool {
 	cid := deal.ProposalCid
-	return BlockCid(cid)
+	return BlockCidFromFile(cid)
 }
 
 func _handleErr(e error) error {
@@ -55,7 +56,21 @@ func _maybeDeleteBitscreen() {
 
 func _setCID(c cid.Cid) (cid.Cid, error) {
 	p := GetPath()
-	return c, ioutil.WriteFile(p, []byte(c.String()+"\n"), os.ModePerm)
+
+	json := gabs.New()
+	json.Array()
+	json.ArrayAppend(c.String())
+
+	return c, ioutil.WriteFile(p, []byte(json.String()+"\n"), os.ModePerm)
+}
+
+func _setEmptyCidList() (error) {
+    p := GetPath()
+
+    json := gabs.New()
+    json.Array()
+
+    return ioutil.WriteFile(p, []byte(json.String()+"\n"), os.ModePerm)
 }
 
 func TestScreenDealProposalExists(t *testing.T) {
@@ -82,6 +97,9 @@ func TestScreenDealProposalNotExists(t *testing.T) {
 	if e != nil {
 		_handleErr(e)
 	}
+
+	_setEmptyCidList()
+
 	result := ScreenDealProposal(d)
 	assert.Equal(t, result, false)
 }
