@@ -55,8 +55,5 @@ func TestGetDealInfoRetrievalDeal(t *testing.T) {
 
     c, err := getDealInfo()
 
-	assert.Equal(t, _contains(c, "bafykbzacea4laqix45psjv43pi436sx3ghybf6zvyvcxozvuqxo23dxbqiho2"), true)
-
-    fmt.Println(c)
-    fmt.Println(err)
+    assert.Equal(t, _contains(c, "bafykbzacea4laqix45psjv43pi436sx3ghybf6zvyvcxozvuqxo23dxbqiho2"), true)
 }
