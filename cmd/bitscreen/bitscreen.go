@@ -103,6 +103,8 @@ func extractFileCID(selector string, payloadCid cid.Cid) (cid.Cid, error) {
 			_log(stdErr.String())
 			log.Fatal(err)
 		}
+
+		//TODO: parse response to get CID (the nth line from the response where n is index variable)
 	}
 
 	_log(index)
@@ -137,6 +139,7 @@ func getDealInfo() ([]cid.Cid, error) {
 
 		if err == nil {
 			_, _ = extractFileCID(strSelector, cids[0])
+			//TODO: add CID to cids array
 		}
 	}
 
