@@ -4,7 +4,7 @@ Welcome to the BitScreen suite of tools for evaluating and taking action regardi
 
 * [More detailed technical information about BitScreen](https://github.com/Murmuration-Labs/bitscreen)
 
-## User typess
+## User types
 
 There are two types of users of BitScreen:
 
