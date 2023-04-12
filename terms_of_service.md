@@ -20,7 +20,11 @@ By submitting, posting, sharing, or publishing your content, suggestions, enhanc
 
 BitScreen is an opt-in distributed list management system for Filecoin storage providers used to manage storage and retrieval deals, not a hosting provider. As such, we have no way of deleting improper or infringing material from our users’ storage systems, third party sites or storage sytems, or their hosting services. Subscribers to file lists managed by us or those managed by a third party, however, may be able to prevent storage and/or retrieval deals involving known CIDs. 
 
-Copyright holders or their agents concerned with material served through Filecoin’s network should submit a notification of claimed copyright infringement or other abuse to support [@] murmuration.ai you would prefer not to use our complaint submission form, you may mail your complaint to:
+Copyright holders or their agents concerned with material served through Filecoin’s network should submit a notification of claimed copyright infringement or other abuse our complaint submission form: 
+
+https://glass.bitscreen.co/complaint
+
+You may also mail your complaint to:
 
 *Murmuration Labs*
 
