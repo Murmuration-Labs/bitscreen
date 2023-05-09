@@ -42,7 +42,7 @@ When evaluating a complaint in Rodeo, you will:
 It is important to note that the filter list is a tool that helps to improve the overall security and stability of the Filecoin network. Storage providers and node operators have the choice to subscribe to the filter list, but it is ultimately their responsibility to ensure that the files they store and retrieve are in compliance with applicable content policies.
 
 * [More detailed information about BitScreen filter list management](https://github.com/Murmuration-Labs/bitscreen)
-* [More information about Rodeo assessment tool]()
-* [More info about Looking Glass transparency hub](https://github.com/Murmuration-Labs/looking-glass-docs)
+* [More information about Rodeo assessment tool](https://github.com/Murmuration-Labs/complaints-portal)
+* [More info about Looking Glass transparency hub](https://github.com/Murmuration-Labs/looking-glass)
 
 Thank you for your contribution to maintaining a safe and secure Filecoin network!
