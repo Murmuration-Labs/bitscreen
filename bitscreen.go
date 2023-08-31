@@ -30,13 +30,13 @@ const BITSCREEN_PATH = "BITSCREEN_PATH"
 // BITSCREEN_SOCKET_PORT  -- server socket port of the bitscreen-updater process
 const BITSCREEN_SOCKET_PORT = "BITSCREEN_SOCKET_PORT"
 
-// BITSCREEN_LOAD_FROM_FILE -- specify whether to use the bitscreen file for checking cids.
+// LOTUS_BLOCK_FROM_FILE -- specify whether to use the bitscreen file for checking cids.
 //
 //	Default is to use the bitscreen-updater process (connects to socket port BITSCREEN_SOCKET_PORT)
-const BITSCREEN_LOAD_FROM_FILE = "BITSCREEN_LOAD_FROM_FILE"
+const LOTUS_BLOCK_FROM_FILE = "LOTUS_BLOCK_FROM_FILE"
 
 func IsLoadFromFileEnabled() bool {
-	loadFromFile, exists := os.LookupEnv(BITSCREEN_LOAD_FROM_FILE)
+	loadFromFile, exists := os.LookupEnv(LOTUS_BLOCK_FROM_FILE)
 	if !exists || loadFromFile == "" {
 		loadFromFile = "false"
 	}
