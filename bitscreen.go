@@ -1,37 +1,38 @@
 package bitscreen
 
 import (
-	"log"
-	"io/ioutil"
-	"os"
-	"path/filepath"
+	"crypto/sha256"
+	"encoding/hex"
+	"github.com/Jeffail/gabs"
 	"github.com/ipfs/go-cid"
 	"github.com/pebbe/zmq4"
-	"github.com/Jeffail/gabs"
-	"encoding/hex"
-	"golang.org/x/crypto/sha3"
+	"io/ioutil"
+	"log"
+	"os"
+	"path/filepath"
 )
 
 type updaterResponse struct {
-	reject int
+	reject  int
 	dealCid string
-	cid string
-	err string
+	cid     string
+	err     string
 }
 
 /* Supported env vars */
 
-//   BITSCREEN_FILENAME -- name of file containing the CIDs to block, defaults to `bitscreen`
+// BITSCREEN_FILENAME -- name of file containing the CIDs to block, defaults to `bitscreen`
 const BITSCREEN_FILENAME = "BITSCREEN_FILENAME"
 
-//   BITSCREEN_PATH     -- path to the bitscreen file, defaults to `.murmuration` in the user home dir
+// BITSCREEN_PATH     -- path to the bitscreen file, defaults to `.murmuration` in the user home dir
 const BITSCREEN_PATH = "BITSCREEN_PATH"
 
-//   BITSCREEN_SOCKET_PORT  -- server socket port of the bitscreen-updater process
+// BITSCREEN_SOCKET_PORT  -- server socket port of the bitscreen-updater process
 const BITSCREEN_SOCKET_PORT = "BITSCREEN_SOCKET_PORT"
 
 // BITSCREEN_LOAD_FROM_FILE -- specify whether to use the bitscreen file for checking cids.
-//    Default is to use the bitscreen-updater process (connects to socket port BITSCREEN_SOCKET_PORT)
+//
+//	Default is to use the bitscreen-updater process (connects to socket port BITSCREEN_SOCKET_PORT)
 const BITSCREEN_LOAD_FROM_FILE = "BITSCREEN_LOAD_FROM_FILE"
 
 func IsLoadFromFileEnabled() bool {
@@ -40,7 +41,7 @@ func IsLoadFromFileEnabled() bool {
 		loadFromFile = "false"
 	}
 
-    return (loadFromFile == "1") || (loadFromFile == "true")
+	return (loadFromFile == "1") || (loadFromFile == "true")
 }
 
 func GetBitscreenFilename() string {
@@ -57,19 +58,19 @@ func GetSocketPort() string {
 		socketPort = "5555"
 	}
 
-    return socketPort
+	return socketPort
 }
 
 // GetPath returns the filepath to the bitscreen file
 func GetPath() string {
-    fn := GetBitscreenFilename()
+	fn := GetBitscreenFilename()
 	path, exists := os.LookupEnv(BITSCREEN_PATH)
 	if !exists || path == "" {
-        homeDir, _ := os.UserHomeDir()
-        defaultPath := filepath.Join(homeDir, ".murmuration")
+		homeDir, _ := os.UserHomeDir()
+		defaultPath := filepath.Join(homeDir, ".murmuration")
 		return filepath.Join(defaultPath, fn)
 	} else {
-	    return filepath.Join(path, fn)
+		return filepath.Join(path, fn)
 	}
 }
 
@@ -116,7 +117,7 @@ func BlockCidFromFile(cidToCheck cid.Cid) bool {
 	p := GetPath()
 
 	unhashedCid := cidToCheck.String()
-	hash := sha3.NewLegacyKeccak256()
+	hash := sha256.New()
 	var buf []byte
 	hash.Write([]byte(unhashedCid))
 	buf = hash.Sum(nil)
@@ -124,7 +125,7 @@ func BlockCidFromFile(cidToCheck cid.Cid) bool {
 
 	cidList, err := gabs.ParseJSONFile(p)
 	if err != nil {
-			panic(err)
+		panic(err)
 	}
 
 	stringList, err := cidList.Children()
@@ -143,44 +144,44 @@ func BlockCidFromFile(cidToCheck cid.Cid) bool {
 // BlockCidFromProcess requests the block status of cid from
 // the bitscreen-updater process
 func BlockCidFromProcess(cidToCheck cid.Cid) bool {
-    socketPort := GetSocketPort()
-    zctx, _ := zmq4.NewContext()
-    // Socket to talk to server
-    s, _ := zctx.NewSocket(zmq4.REQ)
-    s.Connect("tcp://localhost:" + socketPort)
+	socketPort := GetSocketPort()
+	zctx, _ := zmq4.NewContext()
+	// Socket to talk to server
+	s, _ := zctx.NewSocket(zmq4.REQ)
+	s.Connect("tcp://localhost:" + socketPort)
 
-		request := getRequestForCid(cidToCheck)
+	request := getRequestForCid(cidToCheck)
 
-    s.Send(request, 0)
-    responseJSON, _ := s.Recv(0)
-		response := getResponseFromJSON(responseJSON)
+	s.Send(request, 0)
+	responseJSON, _ := s.Recv(0)
+	response := getResponseFromJSON(responseJSON)
 
 	return response.reject == 1
 }
 
 func getRequestForCid(cid cid.Cid) string {
-		json := gabs.New()
-		json.Set(cid.String(), "cid")
+	json := gabs.New()
+	json.Set(cid.String(), "cid")
 
-		return json.String()
+	return json.String()
 }
 
 func getResponseFromJSON(responseJSON string) updaterResponse {
-		response := updaterResponse{}
-		parsed, err := gabs.ParseJSON([]byte(responseJSON))
-		if err != nil {
-				return response
-		}
+	response := updaterResponse{}
+	parsed, err := gabs.ParseJSON([]byte(responseJSON))
+	if err != nil {
+		return response
+	}
 
-		if parsed.Exists("error") {
-			response.err = parsed.Path("error").Data().(string)
-
-			return response
-		}
-
-		response.reject = int(parsed.Path("reject").Data().(float64))
-		response.dealCid = parsed.Path("dealCid").Data().(string)
-		response.cid = parsed.Path("cid").Data().(string)
+	if parsed.Exists("error") {
+		response.err = parsed.Path("error").Data().(string)
 
 		return response
+	}
+
+	response.reject = int(parsed.Path("reject").Data().(float64))
+	response.dealCid = parsed.Path("dealCid").Data().(string)
+	response.cid = parsed.Path("cid").Data().(string)
+
+	return response
 }

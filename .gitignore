@@ -22,3 +22,5 @@ examples/test
 
 # Local development config
 .vscode
+.idea/modules.xml
+.idea/plugin.iml
